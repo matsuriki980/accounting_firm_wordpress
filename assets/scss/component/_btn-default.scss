@@ -1,0 +1,96 @@
+@use "../global/" as g;
+
+/* --------------------------------------
+  btn (default)
+-------------------------------------- */
+.c-btn-default__wrapper {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 15rem;
+}
+
+/* border */
+.c-btn-default__border {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    background: currentColor;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    left: -100%;
+  }
+}
+
+/* hover時、線を左から右に移動 */
+.c-btn-default__wrapper:hover {
+  .c-btn-default__border {
+    &::before,
+    &::after {
+      animation-name: border-translateX;
+      animation-duration: 0.3s;
+      animation-fill-mode: forwards;
+      transform: translate(0, -50%);
+    }
+
+    &::after {
+      animation-delay: 0.2s;
+    }
+  }
+}
+
+@keyframes border-translateX {
+  0% {
+    transform: translate(0, -50%);
+  }
+  100% {
+    transform: translate(100%, -50%);
+  }
+}
+
+/* text */
+.c-btn-default__text-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  overflow: hidden;
+}
+
+.c-btn-default__text {
+    line-height: 2;
+    letter-spacing: 0.06em;
+}
+
+/* hover時、テキストを下から上に移動 */
+.c-btn-default__wrapper:hover {
+  .c-btn-default__text {
+    animation-name: text-translateY;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    transform: translateY(0);
+  }
+}
+
+@keyframes text-translateY {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}

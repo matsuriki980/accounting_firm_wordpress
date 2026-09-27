@@ -1,0 +1,35 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  contact-confirm
+-------------------------------------- */
+
+.p-contact-confirm__list {
+  display: flex;
+  flex-direction: column;
+  gap: 24rem;
+  margin-bottom: 56rem;
+
+  @include g.media() {
+    gap: 40rem;
+  }
+}
+
+.p-contact-confirm__item {
+  padding-bottom: 12rem;
+  border-bottom: 1px solid rgba($color: #1d1d1d, $alpha: 0.25);
+}
+
+.p-contact-confirm__text {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  height: auto;
+  line-height: 2;
+}
+
+.p-contact-confirm__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12rem;
+}

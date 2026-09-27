@@ -1,0 +1,12 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  news-fv
+-------------------------------------- */
+.p-news-fv {
+  background-image: url(../img/news/p-news__fv-sp.jpg);
+
+  @include g.media() {
+    background-image: url(../img/news/p-news__fv.jpg);
+  }
+}

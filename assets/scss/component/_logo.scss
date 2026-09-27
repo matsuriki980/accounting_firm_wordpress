@@ -1,0 +1,17 @@
+@use "../global/" as g;
+
+/* --------------------------------------
+  logo
+-------------------------------------- */
+.c-logo {
+  display: block;
+  width: 125rem;
+  height: 17rem;
+  mask-image: url(../img/common/c-logo.svg);
+  background-color: g.$color-text;
+
+  @include g.media() {
+    width: 165rem;
+    height: 22rem;
+  }
+}

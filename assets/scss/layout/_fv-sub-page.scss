@@ -1,0 +1,97 @@
+@use "../global/" as g;
+
+/* --------------------------------------
+  fv-sub-page
+-------------------------------------- */
+.l-fv-sub-page {
+  width: 100%;
+  height: 436rem;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 18rem;
+  color: g.$color-white;
+  background-image: url(../img/feature/p-feature__fv-sp.jpg);
+  @include g.background-img;
+  position: relative;
+  overflow: hidden;
+
+  // 透過背景
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: #1d1d1d;
+    background: linear-gradient(
+      180deg,
+      rgba(29, 29, 29, 1) 0%,
+      rgba(29, 29, 29, 0.2) 100%
+    );
+  }
+
+  @include g.media() {
+    padding-bottom: 0;
+    background-image: url(../img/feature/p-feature__fv.jpg);
+  }
+}
+
+.l-fv-sub-page__title-wrapper {
+  color: currentColor;
+  z-index: g.$z-index-default;
+  margin-bottom: -36rem;
+
+  @include g.media() {
+    margin-bottom: 0;
+  }
+}
+
+.l-fv-sub-page__title-ja {
+  font-size: 16rem;
+  font-weight: g.$font-weight-medium;
+  line-height: 2.625;
+  display: flex;
+  align-items: center;
+  gap: 10rem;
+
+  // 装飾の[-]
+  &::before {
+    content: "";
+    display: block;
+    width: 16rem;
+    height: 1px;
+    background: currentColor;
+  }
+
+  @include g.media() {
+    font-size: 20rem;
+    margin-bottom: 40px;
+    gap: 20rem;
+
+    // 装飾の[-]
+    &::before {
+      width: 100rem;
+    }
+  }
+}
+
+.l-fv-sub-page__title-en {
+  font-size: 72rem;
+  font-weight: g.$font-weight-extra-light;
+  line-height: 1.1111;
+  letter-spacing: -0.02em;
+  margin-left: 16rem;
+
+  span {
+    display: block;
+  }
+
+  @include g.media() {
+    font-size: 190rem;
+    line-height: 0.55;
+    margin-left: 100rem;
+
+    span {
+      display: inline-block;
+    }
+  }
+}

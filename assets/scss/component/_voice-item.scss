@@ -1,0 +1,74 @@
+@use "../global/" as g;
+
+/* --------------------------------------
+  voice-item
+-------------------------------------- */
+.wrapper {
+  width: 330rem;
+
+  @include g.media() {
+    width: 420rem;
+  }
+}
+
+.c-voice-item {
+  width: 100%;
+  color: currentColor;
+}
+
+.c-voice-item__link {
+  display: block;
+
+  @include g.media() {
+    padding: 60rem;
+  }
+}
+
+.c-voice-item__number {
+  display: block;
+  font-size: 14rem;
+  font-weight: g.$font-weight-light;
+  line-height: 0.714;
+  letter-spacing: 0.02em;
+  margin-bottom: 20rem;
+}
+
+.c-voice-item__img {
+  aspect-ratio: 270/300;
+  border-radius: 10rem;
+  overflow: hidden;
+  margin-bottom: 26rem;
+
+  @include g.media() {
+    aspect-ratio: 300/330;
+  }
+
+  img {
+    height: 100%;
+    object-fit: cover;
+    transition: scale 0.3s;
+  }
+}
+
+/* hover時、画像を拡大 */
+.c-voice-item__link {
+  &:hover {
+    img {
+      scale: (1.1);
+    }
+  }
+}
+
+.c-voice-item__company {
+  font-size: 14rem;
+  line-height: 1.429;
+  letter-spacing: 0.1em;
+  margin-bottom: 5rem;
+  opacity: 0.5;
+}
+
+.c-voice-item__text {
+  font-size: 18rem;
+  line-height: 1.777;
+  letter-spacing: 0.06em;
+}

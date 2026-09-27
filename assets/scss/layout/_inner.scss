@@ -1,0 +1,12 @@
+@use "../global/" as g;
+
+/* --------------------------------------
+  inner
+-------------------------------------- */
+.l-inner {
+  padding: 76rem 30rem;
+
+  @include g.media() {
+    padding: 90rem 320rem 120rem;
+  }
+}

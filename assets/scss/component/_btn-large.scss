@@ -1,0 +1,42 @@
+@use "../global/" as g;
+
+/* --------------------------------------
+  btn (large)
+-------------------------------------- */
+.c-btn-large {
+  background: g.$color-secondary;
+  border: 1px solid g.$color-secondary;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 60rem;
+  color: g.$color-white;
+  font-size: 20rem;
+  font-weight: g.$font-weight-medium;
+  line-height: 2;
+  letter-spacing: 0.08em;
+  transition:
+    background 0.3s,
+    color 0.3s;
+
+  @include g.media() {
+    width: 300rem;
+    margin: 0 auto;
+  }
+
+  &:hover {
+    background: #26346a;
+  }
+
+  // 戻るボタン
+  &--back {
+    border-color: g.$color-text;
+    background: transparent;
+    color: g.$color-text;
+
+    &:hover {
+      background: #26346a;
+      color: g.$color-white;
+    }
+  }
+}

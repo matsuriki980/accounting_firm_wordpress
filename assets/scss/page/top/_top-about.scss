@@ -1,0 +1,189 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  top-about
+-------------------------------------- */
+
+.p-top__about {
+  color: g.$color-text;
+}
+
+.p-top__about-inner {
+  padding: 52rem 30rem 45rem;
+
+  @include g.media() {
+    padding: 102rem 120rem 180rem 99rem;
+  }
+}
+
+.p-top__about-title {
+  font-size: 50rem;
+  font-weight: g.$font-weight-extra-light;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  color: g.$color-secondary;
+  margin-bottom: 38rem;
+  text-transform: none;
+
+  span {
+    display: block;
+    position: relative;
+
+    // 上下のborder
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      height: 0.45px;
+      background: g.$color-primary;
+      position: absolute;
+      opacity: 0.25;
+    }
+
+    // 上
+    &::before {
+      width: 145rem;
+      top: 8rem;
+      left: -18rem;
+    }
+
+    &::after {
+      width: 216rem;
+      bottom: 4rem;
+      right: 30rem;
+    }
+
+    // 2行目
+    &:nth-of-type(2) {
+      // 上
+      &::before {
+        width: 248rem;
+      }
+
+      &::after {
+        width: 204rem;
+        right: -15rem;
+      }
+    }
+  }
+
+  @include g.media() {
+    font-size: 110rem;
+    margin-bottom: 70rem;
+
+    span {
+      display: inline-block;
+
+      // 上
+      &::before {
+        width: 330rem;
+        top: 17rem;
+        left: -50rem;
+      }
+
+      &::after {
+        width: 466rem;
+        bottom: 11rem;
+        right: -30rem;
+      }
+
+      // 2行目
+      &:nth-of-type(2) {
+        // 上
+        &::before {
+          width: 556rem;
+        }
+
+        &::after {
+          width: 460rem;
+          right: -45rem;
+        }
+      }
+    }
+  }
+}
+
+.p-top__about-block {
+  @include g.media() {
+    display: grid;
+    grid-template-columns: 550rem 1fr;
+    align-items: flex-start;
+    gap: 60rem;
+  }
+}
+
+.p-top__about-lead {
+  font-size: 26rem;
+  font-weight: g.$font-weight-medium;
+  line-height: 1.615;
+  margin-bottom: 18rem;
+  margin-left: -15rem;
+
+  @include g.media() {
+    font-size: 32rem;
+    margin-bottom: 46rem;
+  }
+}
+
+.p-top__about-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 48rem;
+  margin-bottom: 39rem;
+
+  @include g.media() {
+    margin-bottom: 82rem;
+    gap: 24rem;
+  }
+}
+
+.p-top__about-text {
+  font-size: 16rem;
+  font-weight: g.$font-weight-regular;
+  line-height: 2;
+  letter-spacing: 0.1em;
+
+  @include g.media() {
+    span {
+      display: block;
+    }
+  }
+}
+
+.p-top__about-btn {
+  @include g.media() {
+    width: 300rem;
+  }
+}
+
+.p-top__about-img {
+  position: relative;
+
+  @include g.media() {
+    // 装飾
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      @include g.background-img;
+      position: absolute;
+      z-index: g.$z-index-negative;
+    }
+
+    &::before {
+      width: 120rem;
+      height: 150rem;
+      background-image: url(../img/top/p-top-about__decoration-01.png);
+      top: -60rem;
+      right: -60rem;
+    }
+
+    &::after {
+      width: 90rem;
+      aspect-ratio: 1/1;
+      background-image: url(../img/top/p-top-about__decoration-02.png);
+      bottom: -60rem;
+      left: -30rem;
+    }
+  }
+}

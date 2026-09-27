@@ -1,0 +1,27 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  privacy-policy-fv
+-------------------------------------- */
+.p-privacy-policy-fv {
+  background-image: none;
+  background: g.$color-primary;
+
+  // 透過背景を削除
+  &::before {
+    display: none;
+  }
+
+  span {
+    display: block;
+    line-height: 1;
+  }
+
+  @include g.media() {
+    background-image: none;
+
+    span {
+        display: inline-block;
+    }
+  }
+}

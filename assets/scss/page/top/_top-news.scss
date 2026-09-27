@@ -1,0 +1,53 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  top-news
+-------------------------------------- */
+
+.p-top-news {
+}
+
+.p-top-news__inner {
+  padding: 46rem 30rem 62rem;
+
+  @include g.media() {
+    padding: 108rem 120rem 88rem;
+    display: grid;
+    grid-template-columns: 1fr 900rem;
+  }
+}
+
+.p-top-news__title-wrapper {
+  margin-bottom: 40rem;
+}
+
+.p-top-news__title-ja {
+}
+
+.p-top-news__title-en {
+  @include g.media() {
+    font-size: 76rem;
+  }
+}
+
+.p-top-news__content {
+}
+
+.p-top-news__list {
+  border-top: 1px solid rgba(29, 29, 29, 0.25);
+  margin-bottom: 36rem;
+
+  @include g.media() {
+    margin-bottom: 60rem;
+  }
+}
+
+.p-top-news__item {
+}
+
+.p-top-news__btn-wrapper {
+  @include g.media() {
+    width: 340rem;
+    margin-left: auto;
+  }
+}

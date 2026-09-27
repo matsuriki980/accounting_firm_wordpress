@@ -1,0 +1,117 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  privacy-policy-content
+-------------------------------------- */
+
+.p-privacy-policy {
+}
+
+.p-privacy-policy__inner {
+  padding: 76rem 30rem;
+
+  @include g.media() {
+    padding: 108rem 315rem 114rem;
+  }
+}
+
+.p-privacy-policy__lead {
+  font-size: 16rem;
+  font-weight: g.$font-weight-medium;
+  line-height: 2;
+  letter-spacing: 0.08em;
+  margin-bottom: 39rem;
+
+  @include g.media() {
+    margin-bottom: 60rem;
+  }
+}
+
+.p-privacy-policy__block {
+  display: flex;
+  flex-direction: column;
+  gap: 39rem;
+}
+
+.p-privacy-policy__title {
+  font-size: 18rem;
+  font-weight: g.$font-weight-medium;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  padding-bottom: 12rem;
+  border-bottom: 1px solid rgba($color: g.$color-text, $alpha: 0.25);
+  margin-bottom: 12rem;
+
+  @include g.media() {
+    font-size: 22rem;
+    padding-bottom: 15rem;
+    margin-bottom: 15rem;
+  }
+}
+
+.p-privacy-policy__text {
+  font-size: 16rem;
+  line-height: 2;
+  letter-spacing: 0.08em;
+
+  // listかaddressを兄弟要素に持つ場合はmargin-bottomを指定
+  &:has(+ .p-privacy-policy__list),
+  &:has(+ .p-privacy-policy__address) {
+    margin-bottom: 12rem;
+  }
+
+  @include g.media() {
+    // listかaddressを兄弟要素に持つtextのmargin-bottomを削除
+    &:has(+ .p-privacy-policy__list),
+    &:has(+ .p-privacy-policy__address) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.p-privacy-policy__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rem;
+
+  @include g.media() {
+    gap: 0;
+  }
+}
+
+.p-privacy-policy__item {
+  line-height: 1.8;
+}
+
+.p-privacy-policy__list-secondly {
+  display: flex;
+  flex-direction: column;
+  gap: 12rem;
+
+  @include g.media() {
+    gap: 0;
+  }
+}
+
+.p-privacy-policy__item-secondly {
+}
+
+.p-privacy-policy__list-third {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+
+  @include g.media() {
+    gap: 0;
+  }
+}
+
+.p-privacy-policy__item-third {
+}
+
+.p-privacy-policy__address {
+  span {
+    line-height: 2;
+    display: block;
+  }
+}

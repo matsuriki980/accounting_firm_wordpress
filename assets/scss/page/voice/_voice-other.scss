@@ -1,0 +1,71 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  voice-other
+-------------------------------------- */
+
+.p-voice-other {
+  background: g.$color-bg-accent;
+}
+
+.p-voice-other__inner {
+  padding: 76rem 30rem;
+
+  @include g.media() {
+    padding: 106rem 120rem 122rem;
+  }
+}
+
+.p-voice-other__title-wrapper {
+  margin-bottom: 37rem;
+
+  @include g.media() {
+    margin-bottom: 79rem;
+  }
+}
+
+.p-voice-other__title-en {
+  @include g.media() {
+    font-size: 76rem;
+  }
+}
+
+.p-voice-other__list {
+  @include g.media() {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.p-voice-other__item {
+  border-top: 1px solid rgba($color: g.$color-text, $alpha: 0.25);
+
+  // 最後のitemにborder-bottomを追加
+  &:nth-of-type(3) {
+    border-bottom: 1px solid rgba($color: g.$color-text, $alpha: 0.25);
+  }
+
+  @include g.media() {
+    border-top: 0;
+    border-right: 1px solid rgba($color: g.$color-text, $alpha: 0.25);
+
+    // 最初のitemにborder-leftを追加
+    &:nth-of-type(1) {
+      border-left: 1px solid rgba($color: g.$color-text, $alpha: 0.25);
+    }
+
+    // 最後のitemのborder-bottomを削除
+    &:nth-of-type(3) {
+      border-bottom: 0;
+    }
+  }
+}
+
+.p-voice-other__link {
+  padding-inline: 15rem;
+
+  @include g.media() {
+    padding-block: 0;
+    padding-inline: 50rem;
+  }
+}

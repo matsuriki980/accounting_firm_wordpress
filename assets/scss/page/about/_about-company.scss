@@ -1,0 +1,126 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  about-company
+-------------------------------------- */
+
+.p-about-company {
+  position: relative;
+
+  // 左上の背景
+  &::before {
+    content: "";
+    display: block;
+    width: 75%;
+    height: 90rem;
+    background: g.$color-white;
+    position: absolute;
+    top: -15rem;
+    left: 0;
+  }
+
+  @include g.media() {
+    // 左上の背景
+    &::before {
+      top: -30rem;
+      width: 50%;
+    }
+  }
+}
+
+.p-about-company__inner {
+  padding: 76rem 30rem;
+
+  @include g.media() {
+    display: flex;
+    gap: 134rem;
+    padding: 76rem 120rem 120rem;
+  }
+}
+
+.p-about-company__title-wrapper {
+  margin-bottom: 56rem;
+}
+
+.p-about-company__title-en {
+  // 上のborder
+  &::before {
+    width: 145rem;
+    top: 8rem;
+    left: -18rem;
+  }
+
+  // 下のborder
+  &::after {
+    width: 216rem;
+    bottom: 4rem;
+    right: -20rem;
+  }
+
+  @include g.media() {
+    // 上のborder
+    &::before {
+      width: 300rem;
+      top: 14rem;
+      left: -30rem;
+    }
+
+    // 下のborder
+    &::after {
+      width: 270rem;
+      bottom: 10rem;
+      right: -30rem;
+    }
+  }
+}
+
+.p-about-company__list {
+  @include g.media() {
+    width: 100%;
+    margin-top: 44rem;
+  }
+}
+
+.p-about-company__item {
+  padding-block: 20rem;
+  border-top: 1px solid rgba($color: g.$color-text, $alpha: 0.25);
+  border-bottom: 1px solid rgba($color: g.$color-text, $alpha: 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 12rem;
+
+  dt {
+    font-size: 18rem;
+    font-weight: g.$font-weight-medium;
+    letter-spacing: 0.1em;
+  }
+
+  dd {
+    font-weight: g.$font-weight-regular;
+
+    span {
+      display: block;
+      line-height: 2;
+    }
+  }
+
+  @include g.media() {
+    display: grid;
+    grid-template-columns: 75rem 1fr;
+    gap: 12rem 45rem;
+    padding-block: 30rem;
+
+    dt {
+      font-size: 16rem;
+
+      // 所在地のテキストのみline-heightを追加
+      &:has(+ dd span) {
+        line-height: 2;
+      }
+    }
+
+    dd {
+      grid-column: 2/3;
+    }
+  }
+}

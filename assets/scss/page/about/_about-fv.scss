@@ -1,0 +1,12 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  about-fv
+-------------------------------------- */
+.p-about-fv {
+  background-image: url(../img/about/p-about__fv-sp.jpg);
+
+  @include g.media() {
+    background-image: url(../img/about/p-about__fv.jpg);
+  }
+}

@@ -1,0 +1,174 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  top-feature
+-------------------------------------- */
+
+.p-top-feature {
+  background: g.$color-bg-accent;
+  position: relative;
+  z-index: 0;
+}
+
+.p-top-feature__inner {
+  padding: 76rem 30rem;
+  position: relative;
+
+  // 装飾画像
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    aspect-ratio: 1/1;
+    @include g.background-img;
+    position: absolute;
+  }
+
+  &::before {
+    background-image: url(../img/top/p-top-feature__decoration-01.png);
+    width: 60rem;
+    top: 15rem;
+    right: 15rem;
+  }
+
+  &::after {
+    background-image: url(../img/top/p-top-feature__decoration-02.png);
+    width: 45rem;
+    bottom: 15rem;
+    left: 15rem;
+  }
+
+  @include g.media() {
+    padding: 136rem 136rem 254rem 120rem;
+
+    // 装飾画像
+    &::before {
+      width: 120rem;
+      top: 240rem;
+      right: 90rem;
+    }
+
+    &::after {
+      width: 90rem;
+      bottom: 180rem;
+      left: 90rem;
+    }
+  }
+}
+
+.p-top-feature__title-wrapper {
+  margin-bottom: 54rem;
+
+  @include g.media() {
+    margin-bottom: 108rem;
+  }
+}
+
+.p-top-feature__title-en {
+  // 上のborder
+  &::before {
+    width: 180rem;
+    left: -15rem;
+  }
+
+  // 下のborder
+  &::after {
+    width: 187rem;
+    right: -15rem;
+  }
+
+  @include g.media() {
+    &::before,
+    &::after {
+      width: 476rem;
+    }
+
+    // 上のborder
+    &::before {
+      left: -30rem;
+    }
+
+    // 下のborder
+    &::after {
+      right: -30rem;
+    }
+  }
+}
+
+.p-top-feature__block {
+  @include g.media() {
+    display: grid;
+    align-items: flex-start;
+    grid-template-columns: 360rem 1fr;
+    gap: 104rem;
+  }
+}
+
+.p-top-feature__img {
+  padding-inline: 30rem;
+  margin-bottom: 45rem;
+  position: relative;
+  z-index: g.$z-index-default;
+  border-radius: 10rem;
+  overflow: hidden;
+
+  @include g.media() {
+    padding-inline: 0;
+    margin-bottom: 0;
+  }
+}
+
+.p-top-feature__content {
+}
+
+.p-top-feature__lead {
+  margin-bottom: 17rem;
+  font-size: 26rem;
+  font-weight: g.$font-weight-medium;
+  line-height: 1.615;
+
+  span {
+    display: block;
+  }
+
+  @include g.media() {
+    font-size: 40rem;
+    line-height: 1.2;
+    margin-bottom: 264rem;
+  }
+}
+
+.p-top-feature__text {
+  margin-bottom: 39rem;
+  font-size: 16rem;
+  letter-spacing: 0.1em;
+  line-height: 2;
+
+  span {
+    display: block;
+  }
+}
+
+.p-top-feature__btn-wrapper {
+  @include g.media() {
+    width: 411rem;
+  }
+}
+
+.p-top-feature__marquee {
+  color: g.$color-white;
+  position: absolute;
+  top: 360rem;
+  line-height: 0.8;
+  z-index: 0;
+
+  // 上下のborderを削除
+  &::before,
+  &::after {
+    display: none;
+  }
+
+  @include g.media() {
+    top: 490rem;
+  }
+}

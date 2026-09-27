@@ -1,0 +1,163 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  about-message
+-------------------------------------- */
+
+.p-about-message {
+}
+
+.p-about-message__inner {
+  padding-top: 76rem;
+
+  @include g.media() {
+    padding-top: 106rem;
+  }
+}
+
+.p-about-message__title-wrapper {
+  margin-left: 30rem;
+  margin-bottom: -8rem;
+
+  @include g.media() {
+    position: relative;
+    z-index: g.$z-index-default;
+    margin-left: 114rem;
+    margin-bottom: -10rem;
+  }
+}
+
+.p-about-message__block {
+  @include g.media() {
+    display: grid;
+    grid-template-columns: 720rem 1fr;
+    grid-template-rows: 720rem;
+    align-items: flex-start;
+  }
+}
+
+.p-about-message__img {
+  @include g.media() {
+    position: relative;
+
+    // 右のborder
+    border-right: 1px solid rgba($color: g.$color-text, $alpha: 0.25);
+
+    // 上のborder
+    &::before {
+      content: "";
+      display: block;
+      width: 690rem;
+      height: 1px;
+      background: rgba($color: g.$color-text, $alpha: 0.25);
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}
+
+.p-about-message__content {
+  padding: 76rem 30rem;
+  border-top: 1px solid rgba($color: g.$color-text, $alpha: 0.25);
+  border-bottom: 1px solid rgba($color: g.$color-text, $alpha: 0.25);
+  height: 100%;
+  background: g.$color-white;
+  position: relative;
+
+  // 装飾画像
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    aspect-ratio: 1/1;
+    @include g.background-img;
+  }
+
+  // 右上の装飾
+  &::before {
+    background-image: url(../img/about/p-about-message__decoration-01.png);
+    width: 64rem;
+    top: -16rem;
+    right: 0;
+  }
+
+  // 左下の装飾
+  &::after {
+    background-image: url(../img/about/p-about-message__decoration-02.png);
+    width: 48rem;
+    bottom: 0;
+    left: 0;
+  }
+
+  @include g.media() {
+    padding: 0 90rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateY(30rem);
+
+    // 右上の装飾
+    &::before {
+      width: 120rem;
+      top: -30rem;
+    }
+
+    // 左下の装飾
+    &::after {
+      width: 90rem;
+      left: -30rem;
+    }
+  }
+}
+
+.p-about-message__lead {
+  font-size: 26rem;
+  font-weight: g.$font-weight-medium;
+  line-height: 1.615;
+  letter-spacing: 0;
+  color: g.$color-secondary;
+  margin-bottom: 16rem;
+
+  span {
+    display: block;
+  }
+
+  @include g.media() {
+    font-size: 32rem;
+    margin-bottom: 34rem;
+  }
+}
+
+.p-about-message__text {
+  font-size: 16rem;
+  line-height: 2;
+  letter-spacing: 0.1em;
+  margin-bottom: 24rem;
+
+  span {
+    display: block;
+  }
+
+  @include g.media() {
+    margin-bottom: 36rem;
+  }
+}
+
+.p-about-message__name-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 22rem;
+}
+
+.p-about-message__position {
+  font-size: 14rem;
+  line-height: 2;
+  letter-spacing: 0.1em;
+}
+
+.p-about-message__name {
+  width: 120rem;
+}

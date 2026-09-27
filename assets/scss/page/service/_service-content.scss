@@ -1,0 +1,274 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  service-content
+-------------------------------------- */
+
+.p-service__inner {
+  padding-block: 76rem;
+
+  @include g.media() {
+    padding-block: 120rem;
+  }
+}
+
+.p-service__list {
+  position: relative;
+
+  // 上のborder
+  &::before {
+    content: "";
+    display: block;
+    width: 345rem;
+    height: 1px;
+    background: g.$color-primary;
+    opacity: 0.25;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @include g.media() {
+    // 上のborder
+    &::before {
+      width: 1380rem;
+    }
+  }
+}
+
+.p-service__item {
+  position: relative;
+  padding-bottom: 60rem;
+
+  // 下のborder
+  &::after {
+    content: "";
+    display: block;
+    width: 345rem;
+    height: 1px;
+    background: g.$color-primary;
+    opacity: 0.25;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @include g.media() {
+    display: grid;
+    grid-template-columns: 1fr 660rem;
+    padding-bottom: 0;
+
+    // 下のborder
+    &::after {
+      width: 1380rem;
+    }
+  }
+
+  // 2つ目のitemの画像とテキストを反転する
+  &:nth-of-type(2) {
+    @include g.media() {
+      grid-template-columns: 660rem 1fr;
+
+      .p-service__content {
+        order: 2;
+      }
+    }
+  }
+}
+
+.p-service__content {
+  padding: 60rem 30rem;
+
+  @include g.media() {
+    padding: 120rem 110rem;
+  }
+}
+
+.p-service__content-head {
+  display: flex;
+  align-items: center;
+  gap: 12rem;
+  margin-bottom: 26rem;
+
+  @include g.media() {
+    gap: 35rem;
+  }
+}
+
+.p-service__number {
+  font-size: 56rem;
+  font-weight: g.$font-weight-extra-light;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: g.$color-light;
+
+  @include g.media() {
+    font-size: 80rem;
+  }
+}
+
+.p-service__title-ja {
+  font-size: 26rem;
+  font-weight: g.$font-weight-medium;
+  letter-spacing: 0;
+
+  @include g.media() {
+    font-size: 32rem;
+  }
+}
+
+.p-service__title-en {
+  font-size: 14rem;
+  font-weight: g.$font-weight-extra-light;
+  line-height: 2;
+  letter-spacing: 0;
+}
+
+.p-service__content-list {
+  margin-bottom: 30rem;
+}
+
+.p-service__content-item {
+}
+
+.p-service__content-item-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12rem;
+  font-size: 16rem;
+  font-weight: g.$font-weight-medium;
+  letter-spacing: 0.1em;
+  color: g.$color-secondary;
+  padding-block: 14rem;
+  border-bottom: 1px solid rgba($color: g.$color-primary, $alpha: 0.2);
+
+  @include g.media() {
+    font-size: 18rem;
+    gap: 0;
+  }
+}
+
+.p-service__text {
+  font-size: 14rem;
+  letter-spacing: 0.04em;
+  line-height: 2.14;
+}
+
+.p-service__img {
+  @include g.media() {
+    img {
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+}
+
+// 2つ目のitem以外は装飾画像を使用
+.p-service__item:not(:nth-of-type(2)) {
+  .p-service__content {
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 45rem;
+      @include g.background-img;
+      position: absolute;
+    }
+
+    @include g.media() {
+      &::before {
+        height: 90rem;
+      }
+    }
+  }
+
+  .p-service__img {
+    &::before {
+      content: "";
+      display: block;
+      height: 45rem;
+      @include g.background-img;
+      position: absolute;
+    }
+
+    @include g.media() {
+      &::before {
+        height: 90rem;
+      }
+    }
+  }
+}
+
+// 1つ目のitemの装飾画像
+.p-service__item:nth-of-type(1) {
+  .p-service__content {
+    &::before {
+      background-image: url(../img/service/p-service__decoration-01.png);
+      width: 45rem;
+      top: -15rem;
+      left: 0;
+    }
+
+    @include g.media() {
+      &::before {
+        width: 90rem;
+        top: -30rem;
+      }
+    }
+  }
+
+  .p-service__img {
+    &::before {
+      background-image: url(../img/service/p-service__decoration-02.png);
+      width: 45rem;
+      bottom: -30rem;
+      right: 0;
+    }
+
+    @include g.media() {
+      &::before {
+        width: 90rem;
+        bottom: -60rem;
+      }
+    }
+  }
+}
+
+// 3つ目のitemの装飾画像
+.p-service__item:nth-of-type(3) {
+  .p-service__content {
+    &::before {
+      background-image: url(../img/service/p-service__decoration-03.png);
+      width: 60rem;
+      top: 0;
+      left: -7rem;
+    }
+
+    @include g.media() {
+      &::before {
+        width: 120rem;
+        left: -15rem;
+      }
+    }
+  }
+
+  .p-service__img {
+    &::before {
+      background-image: url(../img/service/p-service__decoration-04.png);
+      width: 60rem;
+      bottom: 30rem;
+      right: 0;
+    }
+
+    @include g.media() {
+      &::before {
+        width: 120rem;
+        bottom: -30rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  service-fv
+-------------------------------------- */
+.p-service-fv {
+  background-image: url(../img/service/p-service__fv-sp.jpg);
+
+  @include g.media() {
+    background-image: url(../img/service/p-service__fv.jpg);
+  }
+}

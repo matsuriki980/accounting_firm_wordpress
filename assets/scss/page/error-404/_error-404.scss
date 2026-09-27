@@ -1,0 +1,34 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  error-404
+-------------------------------------- */
+
+.p-404 {
+}
+
+.p-404__inner {
+  padding-top: 120rem;
+
+  @include g.media() {
+    padding-top: 165rem;
+  }
+}
+
+.p-404__title {
+  font-size: 48rem;
+  font-weight: g.$font-weight-extra-light;
+  line-height: 1.459;
+  letter-spacing: -0.05em;
+  margin-bottom: 24rem;
+  text-align: center;
+
+  @include g.media() {
+    font-size: 72rem;
+    margin-bottom: 56rem;
+  }
+}
+
+.p-404__lead {
+  margin-bottom: 56rem;
+}

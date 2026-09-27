@@ -1,0 +1,115 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  top-fv
+-------------------------------------- */
+.p-top__fv {
+  color: g.$color-text;
+}
+
+.p-top__fv-content {
+  padding: 87rem 30rem 41rem;
+  display: flex;
+  align-items: flex-end;
+
+  @include g.media() {
+    padding: 196rem 90rem 60rem 78rem;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.p-top__fv-copy-en {
+  font-size: 70rem;
+  font-weight: g.$font-weight-light;
+  line-height: 0.957;
+  letter-spacing: -0.05em;
+  margin-bottom: 16rem;
+  color: g.$color-primary;
+
+  span {
+    display: block;
+  }
+
+  @include g.media() {
+    font-size: 131rem;
+
+    span {
+      display: inline-block;
+    }
+  }
+}
+
+.p-top__fv-copy-ja {
+  font-size: 16rem;
+  font-weight: g.$font-weight-regular;
+  line-height: 2;
+  letter-spacing: 0.07em;
+
+  span {
+    display: block;
+  }
+
+  @include g.media() {
+    font-size: 18rem;
+
+    span {
+      display: inline-block;
+    }
+  }
+}
+
+.p-top__fv-scroll-btn {
+  width: 60rem;
+  aspect-ratio: 1/1;
+  border: 1px solid currentColor;
+  display: grid;
+  place-items: center;
+
+  // 矢印のアイコン
+  &::before {
+    content: "";
+    display: block;
+    width: 28rem;
+    aspect-ratio: 1/1;
+    mask-image: url(../img/top/p-top__fv-scroll-btn-icon.svg);
+    @include g.mask-img;
+    background-color: currentColor;
+  }
+
+  @include g.media() {
+    width: 120rem;
+
+    &::before {
+      width: 56rem;
+    }
+  }
+}
+
+.p-top__fv-img {
+  position: relative;
+
+  // 装飾
+  &::before {
+    content: "";
+    display: block;
+    width: 60rem;
+    aspect-ratio: 60/75;
+    background-image: url(../img/top/p-top__fv-decoration.png);
+    @include g.background-img;
+    position: absolute;
+    top: -30rem;
+    right: 0;
+  }
+
+  @include g.media() {
+    margin-right: 90rem;
+
+    // 装飾
+    &::before {
+      width: 120rem;
+      top: -60rem;
+      right: -60rem;
+    }
+  }
+}

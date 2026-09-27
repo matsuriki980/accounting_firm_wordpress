@@ -1,0 +1,17 @@
+@use "../global/" as g;
+
+/* --------------------------------------
+  lead
+-------------------------------------- */
+
+.c-lead {
+  font-size: 16rem;
+  font-weight: g.$font-weight-medium;
+  line-height: 2.5;
+  letter-spacing: 0.08em;
+  text-align: center;
+
+  span {
+    display: block;
+  }
+}

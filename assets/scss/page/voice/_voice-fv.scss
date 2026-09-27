@@ -1,0 +1,12 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  voice-fv
+-------------------------------------- */
+.p-voice-fv {
+  background-image: url(../img/voice/p-voice__fv-sp.jpg);
+
+  @include g.media() {
+    background-image: url(../img/voice/p-voice__fv.jpg);
+  }
+}

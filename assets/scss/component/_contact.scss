@@ -1,0 +1,27 @@
+@use "../global/" as g;
+
+/* --------------------------------------
+  contact
+-------------------------------------- */
+
+.c-contact__label {
+  font-size: 18rem;
+  font-weight: g.$font-weight-medium;
+  line-height: 2;
+  letter-spacing: 0.08em;
+}
+
+.c-contact__text {
+  width: 100%;
+  border: 1px solid rgba($color: g.$color-primary, $alpha: 0.1);
+  background: g.$color-bg-accent;
+  padding: 7rem 17rem;
+  line-height: 2;
+}
+
+// お問い合わせ内容以外の入力欄に高さを指定する
+.c-contact__text {
+  height: 46rem;
+  line-height: 1;
+}
+

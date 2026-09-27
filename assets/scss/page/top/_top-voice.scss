@@ -1,0 +1,136 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  top-voice
+-------------------------------------- */
+
+.p-top-voice {
+  color: g.$color-white;
+  background: g.$color-primary;
+
+  @include g.media() {
+    position: relative;
+
+    // 左上の階段型の装飾
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 480rem;
+      background: g.$color-primary;
+      position: absolute;
+      z-index: g.$z-index-default;
+    }
+
+    &::before {
+      height: 60rem;
+      top: -60rem;
+      left: 0;
+    }
+
+    &::after {
+      height: 30rem;
+      top: -30rem;
+      left: 480rem;
+    }
+  }
+}
+
+.p-top-voice__inner {
+  padding-block: 61rem 67rem;
+  overflow: hidden;
+
+  @include g.media() {
+    padding: 120rem 30rem 148rem;
+  }
+}
+
+.p-top-voice__block {
+  @include g.media() {
+    display: grid;
+    grid-template-columns: 1fr 930rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 90rem;
+  }
+}
+
+.p-top-voice__content {
+  padding-left: 26rem;
+  margin-bottom: 37rem;
+
+  @include g.media() {
+    padding: 90rem 47rem 60rem 90rem;
+    margin-bottom: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.p-top-voice__title-ja {
+  // □の装飾
+  &::before {
+    background: currentColor;
+  }
+}
+
+.p-top-voice__title-en {
+  letter-spacing: -0.03em;
+
+  @include g.media() {
+    font-size: 76rem;
+  }
+}
+
+.p-top-voice__btns {
+  @include g.media() {
+    display: flex;
+    gap: 12rem;
+  }
+}
+
+.p-top-voice__btn--back {
+  @include g.media() {
+    transform: scale(-1, 1);
+  }
+}
+
+.p-top-voice {
+  .splide {
+    margin-bottom: 36rem;
+
+    @include g.media() {
+      margin-bottom: 0;
+    }
+  }
+
+  .splide__list {
+    display: flex;
+  }
+}
+
+.p-top-voice__item {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+
+  @include g.media() {
+    border-top: 0;
+    border-bottom: 0;
+  }
+}
+
+.p-top-voice__link {
+}
+
+.p-top-voice__btn-wrapper {
+  padding-inline: 30rem;
+
+  @include g.media() {
+    padding-inline: 0;
+    width: 358rem;
+    margin: 0 auto;
+  }
+}

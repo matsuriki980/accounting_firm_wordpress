@@ -1,0 +1,39 @@
+@use "../global/" as g;
+
+/* --------------------------------------
+  pagination-btn
+-------------------------------------- */
+.c-pagination-btn__wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 50rem);
+  align-items: center;
+  justify-content: center;
+  gap: 10rem;
+}
+
+.c-pagination-btn {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 1px solid g.$color-white;
+  display: grid;
+  place-items: center;
+  font-size: 18rem;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  opacity: 0.4;
+  transition: opacity 0.3s;
+
+  @include g.media() {
+    // hover時、opacityを1に
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.c-pagination-btn--is-active {
+  color: g.$color-text;
+  background: g.$color-white;
+  opacity: 1;
+}

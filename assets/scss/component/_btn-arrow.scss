@@ -1,0 +1,34 @@
+@use "../global/" as g;
+
+/* --------------------------------------
+  btn (arrow)
+-------------------------------------- */
+.c-btn-arrow {
+  display: inline-grid;
+  place-items: center;
+  width: 84rem;
+  height: 30rem;
+  border: 1px solid currentColor;
+  border-radius: 15rem;
+  opacity: 0.4;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.c-btn-arrow__icon {
+  display: block;
+  width: 31rem;
+  height: 9rem;
+  -webkit-mask-image: url("../img/common/c-btn-arrow.svg");
+  mask-image: url("../img/common/c-btn-arrow.svg");
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  background-color: currentColor;
+}

@@ -1,0 +1,26 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  contact-fv
+-------------------------------------- */
+.p-contact-fv {
+  background-image: none;
+  background: g.$color-primary;
+
+  // 透過背景を削除
+  &::before {
+    display: none;
+  }
+
+  span {
+    display: block;
+  }
+
+  @include g.media() {
+    background-image: none;
+
+    span {
+        display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,158 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  voice-detail
+-------------------------------------- */
+
+.p-voice-detail {
+}
+
+.p-voice-detail__inner {
+  padding: 76rem 30rem;
+
+  @include g.media() {
+    padding: 148rem 320rem 128rem;
+  }
+}
+
+.p-voice-detail__article {
+  margin-bottom: 60rem;
+
+  @include g.media() {
+    margin-bottom: 110rem;
+  }
+}
+
+.p-voice-detail__head {
+  margin-bottom: 19rem;
+}
+
+.p-voice-detail__time {
+  font-size: 16rem;
+  font-weight: g.$font-weight-extra-light;
+  line-height: 0;
+  letter-spacing: 0.04em;
+}
+
+.p-voice-detail__title {
+  font-size: 26rem;
+  font-weight: g.$font-weight-medium;
+  line-height: 1.8;
+  letter-spacing: 0;
+
+  @include g.media() {
+    font-size: 32rem;
+  }
+}
+
+.p-voice-detail__figure {
+  width: 100%;
+  height: 346rem;
+  border-radius: 10rem;
+  margin-bottom: 48rem;
+  overflow: hidden;
+  position: relative;
+
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // 透過背景
+  &::before {
+    content: "";
+    display: block;
+    background: #303030;
+    background: linear-gradient(
+      180deg,
+      rgba(48, 48, 48, 0) 0%,
+      rgba(48, 48, 48, 1) 100%
+    );
+    position: absolute;
+    inset: 0;
+  }
+
+  @include g.media() {
+    height: 390rem;
+    margin-bottom: 60rem;
+  }
+}
+
+.p-voice-detail__figcaption {
+  font-size: 18rem;
+  font-weight: g.$font-weight-medium;
+  line-height: 1.6;
+  letter-spacing: 0;
+  color: g.$color-white;
+  margin-inline: 15rem;
+  position: absolute;
+  bottom: 20rem;
+
+  @include g.media() {
+    font-size: 22rem;
+    margin-inline: 28rem;
+    bottom: 24rem;
+  }
+}
+
+.p-voice-detail__question {
+  display: flex;
+  flex-direction: column;
+  gap: 48rem;
+  margin-bottom: 48rem;
+
+  @include g.media() {
+    gap: 60rem;
+    margin-bottom: 60rem;
+  }
+}
+
+.p-voice-detail__question-title {
+  font-size: 18rem;
+  font-weight: g.$font-weight-medium;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  color: g.$color-secondary;
+  margin-bottom: 18rem;
+  display: flex;
+  flex-direction: column;
+  gap: 18rem;
+
+  // borderの装飾画像
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 14rem;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../img/voice/p-voice-detail__border.png);
+  }
+
+  @include g.media() {
+    font-size: 20rem;
+    margin-bottom: 30rem;
+  }
+}
+
+.p-voice-detail__question-text {
+  font-size: 16rem;
+  line-height: 2;
+  letter-spacing: 0.08em;
+}
+
+.p-voice-detail__company-name {
+  font-size: 16rem;
+  font-weight: g.$font-weight-regular;
+  line-height: 2;
+  letter-spacing: 0.1em;
+  text-align: right;
+}
+
+.p-voice-detail__btn-wrapper {
+  @include g.media() {
+    width: 340rem;
+    margin: 0 auto;
+  }
+}

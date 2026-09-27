@@ -1,0 +1,93 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  about-values
+-------------------------------------- */
+
+.p-about-values {
+  background-repeat: no-repeat;
+  background-position: 40%;
+  background-size: cover;
+  background-image: url(../img/about/p-about-values.jpg);
+
+  @include g.media() {
+    background-position: left;
+  }
+}
+
+.p-about-values__inner {
+  padding-bottom: 20rem;
+
+  @include g.media() {
+    padding-right: 120rem;
+    padding-bottom: 90rem;
+  }
+}
+
+.p-about-values__title-en {
+  font-size: 135rem;
+  font-weight: g.$font-weight-extra-light;
+  line-height: 0.474;
+  letter-spacing: -0.05em;
+  color: g.$color-white;
+  writing-mode: vertical-rl;
+
+  @include g.media() {
+    font-size: 220rem;
+  }
+}
+
+.p-about-values__content-wrapper {
+  @include g.media() {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.p-about-values__content {
+  @include g.media() {
+    display: inline-block;
+  }
+}
+
+.p-about-values__title-ja {
+}
+
+.p-about-values__lead {
+  font-size: 18rem;
+  font-weight: g.$font-weight-medium;
+  letter-spacing: 0;
+  color: g.$color-white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12rem;
+
+  span {
+    display: inline-block;
+    line-height: 3;
+    background: g.$color-secondary;
+    padding-left: 8rem;
+
+    // 1行目は幅いっぱいまで広げる
+    &:first-of-type {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  @include g.media() {
+    font-size: 26rem;
+    gap: 0;
+
+    span {
+      padding-left: 19rem;
+      line-height: 2.12;
+
+      // 1行目
+      &:first-of-type {
+        width: auto;
+      }
+    }
+  }
+}

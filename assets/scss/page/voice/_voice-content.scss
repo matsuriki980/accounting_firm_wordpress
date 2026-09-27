@@ -1,0 +1,83 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  voice-content
+-------------------------------------- */
+.p-voice {
+  background: g.$color-primary;
+  color: g.$color-white;
+}
+
+.p-voice__inner {
+  padding: 76rem 30rem;
+  border-bottom: 1px solid g.$color-white;
+
+  @include g.media() {
+    padding: 90rem 30rem 155rem;
+  }
+}
+
+.p-voice__list {
+  margin-bottom: 37rem;
+
+  @include g.media() {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 60rem;
+  }
+}
+
+.p-voice__item {
+  border-top: 1px solid rgba($color: g.$color-white, $alpha: 0.2);
+  border-left: 1px solid rgba($color: g.$color-white, $alpha: 0.2);
+  border-right: 1px solid rgba($color: g.$color-white, $alpha: 0.2);
+
+  @include g.media() {
+    position: relative;
+    border-left: 0;
+    border-right: 0;
+
+    // 1列目以外のitemの左側にborder
+    &:not(:nth-of-type(3n -2)) {
+      &::before {
+        content: "";
+        display: block;
+        width: 1px;
+        height: 100%;
+        background: rgba($color: g.$color-white, $alpha: 0.2);
+        position: absolute;
+        top: -30rem;
+        left: -0.7rem;
+      }
+    }
+
+    // リストの総数が3の倍数以外の時、最後itemの右側にborder
+    &:last-of-type:not(:nth-of-type(3n)) {
+      &::after {
+        content: "";
+        display: block;
+        width: 1px;
+        height: 100%;
+        background: rgba($color: g.$color-white, $alpha: 0.2);
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+
+    &:last-of-type:nth-of-type(3n) {
+        &::before {
+            height: calc(100% + 30rem);
+        }
+    }
+
+    // 2列目のitemを30remずらす
+    &:nth-of-type(3n - 1) {
+      transform: translateY(30rem);
+    }
+
+    &:nth-of-type(3n) {
+      transform: translateY(60rem);
+    }
+  }
+}

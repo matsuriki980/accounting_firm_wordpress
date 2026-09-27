@@ -1,0 +1,82 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  about-access
+-------------------------------------- */
+
+.p-about-access {
+  border-top: 1px solid rgba($color: g.$color-text, $alpha: 0.25);
+  border-bottom: 1px solid rgba($color: g.$color-text, $alpha: 0.25);
+}
+
+.p-about-access__inner {
+  @include g.media() {
+    display: grid;
+    grid-template-columns: 1fr 870rem;
+  }
+}
+
+.p-about-access__content {
+  padding: 48rem 30rem;
+
+  @include g.media() {
+    padding: 135rem 0 135rem 120rem;
+  }
+}
+
+.p-about-access__title-wrapper {
+  margin-bottom: 37rem;
+}
+
+.p-about-access__title-en {
+  // 上のborder
+  &::before {
+    width: 145rem;
+    top: 8rem;
+    left: -18rem;
+  }
+
+  // 下のborder
+  &::after {
+    width: 166rem;
+    bottom: 4rem;
+    right: -20rem;
+  }
+
+  @include g.media() {
+    // 上のborder
+    &::before {
+      width: 189rem;
+      top: 14rem;
+      left: -30rem;
+    }
+
+    // 下のborder
+    &::after {
+      width: 210rem;
+      bottom: 10rem;
+      right: -30rem;
+    }
+  }
+}
+
+.p-about-access__address {
+  font-size: 14rem;
+  font-weight: g.$font-weight-regular;
+  line-height: 2;
+  letter-spacing: 0.1em;
+
+  span {
+    display: block;
+  }
+}
+
+.p-about-access__map {
+  width: 100%;
+  height: 510rem;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+}

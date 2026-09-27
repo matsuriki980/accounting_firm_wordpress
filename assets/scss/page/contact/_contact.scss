@@ -1,0 +1,121 @@
+@use "../../global/" as g;
+
+/* --------------------------------------
+  contact
+-------------------------------------- */
+
+.p-contact {
+  background: g.$color-bg-primary;
+}
+
+.p-contact__lead {
+  margin-bottom: 46rem;
+}
+
+.p-contact__supplement {
+  font-size: 14rem;
+}
+
+.p-contact-form {
+}
+
+.p-contact-form__list {
+  display: flex;
+  flex-direction: column;
+  gap: 40rem;
+  margin-bottom: 34rem;
+
+  @include g.media() {
+    gap: 22rem;
+  }
+}
+
+.p-contact-form__item {
+}
+
+// 郵便番号
+.p-contact-form__item--postal-code {
+  .c-contact__text {
+    display: inline-block;
+  }
+}
+
+.p-contact-form__head {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  margin-bottom: 12rem;
+}
+
+.p-contact-form__required {
+  font-size: 12rem;
+  font-weight: g.$font-weight-medium;
+  line-height: 2;
+  letter-spacing: 0.08em;
+  color: g.$color-red;
+}
+
+// 郵便番号の入力欄を横並び
+.p-contact-form__input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 9rem;
+
+  // ハイフン
+  span {
+    width: 10.5rem;
+    height: 1px;
+    background: g.$color-text;
+  }
+}
+
+// 郵便番号 1つ目の入力欄
+#postal-code-first {
+  width: 66rem;
+}
+
+// 郵便番号 2つ目の入力欄
+#postal-code-second {
+  width: 76rem;
+}
+
+.p-contact-form__agreement-wrapper {
+  margin-bottom: 30rem;
+
+  @include g.media() {
+    text-align: center;
+  }
+}
+
+.p-contact-form__agreement {
+  font-size: 16rem;
+  font-weight: g.$font-weight-medium;
+  line-height: 2;
+  letter-spacing: 0.08em;
+  display: grid;
+  align-items: flex-start;
+  grid-template-columns: 18rem 1fr;
+  gap: 13rem;
+
+  input {
+    width: 100%;
+    aspect-ratio: 1/1;
+    margin-top: 8rem;
+  }
+
+  a {
+    color: g.$color-secondary;
+    border-bottom: 1px solid currentColor;
+  }
+
+  @include g.media() {
+    display: inline-grid;
+    text-align: center;
+  }
+}
+
+// お問い合わせ内容の入力欄の高さをauto
+.p-contact__textarea {
+  height: auto;
+  line-height: 2;
+}

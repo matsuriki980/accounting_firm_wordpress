@@ -1,0 +1,297 @@
+@use "../global/" as g;
+
+/* --------------------------------------
+  header
+-------------------------------------- */
+.l-header {
+  color: g.$color-primary;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: g.$z-index-header;
+  transition:
+    color 0.3s,
+    background 0.3s;
+}
+
+.l-header__inner {
+  padding: 18rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include g.media() {
+    padding: 17rem 30rem 17rem 60rem;
+  }
+}
+
+.l-header__content {
+  @include g.media() {
+    display: flex;
+    align-items: center;
+    gap: 37rem;
+  }
+}
+
+.l-header__nav {
+  @include g.media() {
+    transition:
+      opacity 0.3s,
+      visibility 0.3s;
+  }
+}
+
+.l-header__list {
+  @include g.media() {
+    display: flex;
+    align-items: center;
+    gap: 36rem;
+  }
+}
+
+.l-header__item {
+}
+
+.l-header__link {
+  @include g.media() {
+    font-size: 14rem;
+    letter-spacing: 0.06em;
+    padding-bottom: 6rem;
+  }
+}
+
+.l-header__btns {
+  display: flex;
+  align-items: center;
+  gap: 7rem;
+
+  @include g.media() {
+    gap: 12rem;
+  }
+}
+
+.l-header__btn {
+  width: 39rem;
+  aspect-ratio: 1/1;
+  border: 1px solid g.$color-primary;
+  border-radius: 50%;
+  transition:
+    background 0.3s,
+    border 0.3s;
+
+  @include g.media() {
+    width: 58rem;
+  }
+
+  &--contact {
+    display: grid;
+    place-items: center;
+    transition:
+      opacity 0.3s,
+      visibility 0.3s,
+      background 0.3s,
+      border 0.3s;
+
+    // icon
+    &::before {
+      content: "";
+      display: block;
+      width: 16rem;
+      height: 11.5rem;
+      mask-image: url(../img/common/mail-icon.svg);
+      @include g.mask-img;
+      background-color: currentColor;
+      transition: background-color 0.3s;
+
+      @include g.media() {
+        width: 23rem;
+        height: 16.6rem;
+      }
+    }
+
+    // hover時、色を反転
+    @include g.media() {
+      &:hover {
+        background: g.$color-primary;
+
+        // icon
+        &::before {
+          background-color: g.$color-white;
+        }
+      }
+    }
+  }
+
+  &--hamburger {
+    background: currentColor;
+    position: relative;
+
+    // border
+    span {
+      content: "";
+      display: block;
+      height: 1px;
+      background: g.$color-white;
+      position: absolute;
+      transform: translateX(-50%);
+      transition:
+        transform 0.3s,
+        background 0.3s;
+    }
+
+    // 上のborder
+    span:nth-of-type(1) {
+      width: 42.85%;
+      top: calc(50% - 2px);
+      left: 50%;
+
+      @include g.media() {
+        top: calc(50% - 3px);
+      }
+    }
+
+    // 下のborder
+    span:nth-of-type(2) {
+      width: 30%;
+      top: 55%;
+      left: 56%;
+
+      @include g.media() {
+        top: calc(50% - -3px);
+        left: calc(50% - -4px);
+      }
+    }
+
+    // hover時、色を反転
+    @include g.media() {
+      &:hover {
+        background: g.$color-white;
+
+        // border
+        span {
+          background: g.$color-primary;
+        }
+      }
+    }
+  }
+}
+
+/* ハンバーガーメニューopen時 */
+.l-header {
+  &.is-open {
+    color: g.$color-white;
+
+    // 白色に変更
+    .l-header__logo-link {
+      background-color: g.$color-white;
+    }
+
+    // ナビゲーションを非表示
+    .l-header__nav {
+      @include g.media() {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    // お問い合わせボタンを非表示
+    .l-header__btn--contact {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    // ハンバーガーボタンのborderの色を変更
+    .l-header__btn--hamburger {
+      background: g.$color-white;
+
+      @include g.media() {
+        background: g.$color-primary;
+      }
+
+      // border
+      span {
+        width: 46.375%;
+        background: g.$color-primary;
+        transform-origin: center;
+        top: auto;
+        left: 50%;
+
+        @include g.media() {
+          background: g.$color-white;
+        }
+      }
+
+      // 上のborder
+      span:nth-of-type(1) {
+        transform: translate(-50%, 0) rotate(30deg);
+      }
+
+      // 下のborder
+      span:nth-of-type(2) {
+        transform: translate(-50%, 0) rotate(-30deg);
+      }
+
+      // hover時、色を反転
+      @include g.media() {
+        &:hover {
+          background: g.$color-white;
+          border: 1px solid g.$color-primary;
+
+          // border
+          span {
+            background: g.$color-primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 下層ページ */
+.l-header--sub-page {
+  // スクロール位置がページトップの時、白色にする
+  color: g.$color-white;
+
+  .l-header__logo-link {
+    background-color: currentColor;
+  }
+
+  .l-header__btn {
+    border: 1px solid currentColor;
+
+    &--contact {
+      @include g.media() {
+        &:hover {
+          background: g.$color-white;
+
+          // iconの色を変更
+          &::before {
+            background-color: g.$color-primary;
+          }
+        }
+      }
+    }
+
+    &--hamburger {
+      span {
+        background: g.$color-primary;
+      }
+
+      @include g.media() {
+        &:hover {
+          background: transparent;
+
+          span {
+            background: g.$color-white;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* トリガー要素通過状態で背景の表示・非表示切り替え */
+.l-header.is-active {
+  background: g.$color-white;
+}

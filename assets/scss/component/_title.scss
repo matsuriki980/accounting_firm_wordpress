@@ -1,0 +1,74 @@
+@use "../global/" as g;
+
+/* --------------------------------------
+  title
+-------------------------------------- */
+.c-title__wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8rem;
+
+  @include g.media() {
+    gap: 0;
+  }
+}
+
+.c-title-ja {
+  display: flex;
+  align-items: center;
+  gap: 15rem;
+  font-size: 16rem;
+  font-weight: g.$font-weight-medium;
+  line-height: 2.625;
+
+  /* □の装飾 */
+  &::before {
+    content: "";
+    display: block;
+    width: 15rem;
+    aspect-ratio: 1/1;
+    background: g.$color-secondary;
+  }
+}
+
+.c-title-en {
+  display: inline-block;
+  font-size: 64rem;
+  font-weight: g.$font-weight-extra-light;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  position: relative;
+
+  /* 装飾線 */
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    background: g.$color-primary;
+    opacity: 0.25;
+    height: 1px;
+    position: absolute;
+  }
+
+  // 上
+  &::before {
+    top: 8rem;
+  }
+
+  &::after {
+    bottom: 4rem;
+  }
+
+  @include g.media() {
+    font-size: 110rem;
+
+    // 上
+    &::before {
+      top: 17rem;
+    }
+
+    &::after {
+      bottom: 11rem;
+    }
+  }
+}
