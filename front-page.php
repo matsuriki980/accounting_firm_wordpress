@@ -324,77 +324,62 @@
     </section>
 
     <!--======================  news  ======================-->
-    <section class="p-top-news">
-        <div class="p-top-news__inner">
-            <div class="c-title__wrapper p-top-news__title-wrapper">
-                <h2 class="c-title-ja p-top-news__title-ja">お知らせ</h2>
-                <p class="c-title-en p-top-news__title-en u-en">news</p>
+    <?php if (have_posts()) : ?>
+        <section class="p-top-news">
+            <div class="p-top-news__inner">
+                <div class="c-title__wrapper p-top-news__title-wrapper">
+                    <h2 class="c-title-ja p-top-news__title-ja">お知らせ</h2>
+                    <p class="c-title-en p-top-news__title-en u-en">news</p>
+                </div>
+
+                <div class="p-top-news__content">
+                    <ol class="p-top-news__list">
+
+                        <?php while (have_posts()) : the_post(); ?>
+                            <li class="p-top-news__item">
+                                <article class="c-news-item">
+                                    <a href="<?php the_permalink(); ?>" class="c-news-item__link">
+                                        <div class="c-news-item__img">
+                                            <?php if (has_post_thumbnail()):  ?>
+                                                <?php the_post_thumbnail('large'); ?>
+                                            <?php endif; ?>
+                                        </div>
+
+                                        <div class="c-news-item__content">
+                                            <div class="c-news-item__info">
+
+                                                <?php
+                                                $categories = get_the_category();
+                                                if ($categories)
+                                                ?>
+                                                <p class="c-news-item__category">
+                                                    <?php foreach ($categories as $category) : ?>
+                                                        <?php echo $category->name; ?>
+                                                    <?php endforeach; ?>
+                                                </p>
+
+                                                <time class="c-news-item__date u-en" datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y.m.d'); ?></time>
+                                            </div>
+
+                                            <p class="c-news-item__title"><?php the_title(); ?></p>
+                                        </div>
+                                    </a>
+                                </article>
+                            </li>
+                        <?php endwhile; ?>
+                    </ol>
+
+                    <a class="c-btn-default__wrapper p-top-news__btn-wrapper" href="news/">
+                        <span class="c-btn-default__border"></span>
+                        <span class="c-btn-default__text-wrapper">
+                            <span class="c-btn-default__text">お知らせ一覧を見る</span>
+                            <span class="c-btn-default__text">お知らせ一覧を見る</span>
+                        </span>
+                    </a>
+                </div>
             </div>
-
-            <div class="p-top-news__content">
-                <ol class="p-top-news__list">
-                    <li class="p-top-news__item">
-                        <article class="c-news-item">
-                            <a href="news/detail/" class="c-news-item__link">
-                                <div class="c-news-item__img">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/voice/p-voice__fv.jpg" width="270" height="300" alt="">
-                                </div>
-
-                                <div class="c-news-item__content">
-                                    <div class="c-news-item__info">
-                                        <p class="c-news-item__category">お知らせ</p>
-                                        <time class="c-news-item__date u-en" datetime="2026-09-10">2026.09.10</time>
-                                    </div>
-
-                                    <p class="c-news-item__title">ホームページをリニューアルしました</p>
-                                </div>
-                            </a>
-                        </article>
-                        <article class="c-news-item">
-                            <a href="news/detail/" class="c-news-item__link">
-                                <div class="c-news-item__img">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/voice/p-voice__fv.jpg" width="270" height="300" alt="">
-                                </div>
-
-                                <div class="c-news-item__content">
-                                    <div class="c-news-item__info">
-                                        <p class="c-news-item__category">お知らせ</p>
-                                        <time class="c-news-item__date u-en" datetime="2026-09-09">2026.09.09</time>
-                                    </div>
-
-                                    <p class="c-news-item__title">タイトルが入りますタイトルが入ります</p>
-                                </div>
-                            </a>
-                        </article>
-                        <article class="c-news-item">
-                            <a href="news/detail/" class="c-news-item__link">
-                                <div class="c-news-item__img">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/voice/p-voice__fv.jpg" width="270" height="300" alt="">
-                                </div>
-
-                                <div class="c-news-item__content">
-                                    <div class="c-news-item__info">
-                                        <p class="c-news-item__category">お知らせ</p>
-                                        <time class="c-news-item__date u-en" datetime="2026-09-08">2026.09.08</time>
-                                    </div>
-
-                                    <p class="c-news-item__title">タイトルが入りますタイトルが入ります</p>
-                                </div>
-                            </a>
-                        </article>
-                    </li>
-                </ol>
-
-                <a class="c-btn-default__wrapper p-top-news__btn-wrapper" href="news/">
-                    <span class="c-btn-default__border"></span>
-                    <span class="c-btn-default__text-wrapper">
-                        <span class="c-btn-default__text">お知らせ一覧を見る</span>
-                        <span class="c-btn-default__text">お知らせ一覧を見る</span>
-                    </span>
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
+    <?php endif; ?>
 </main>
 
 <!-- ===================== footerを読み込む ===================== -->
