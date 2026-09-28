@@ -3,7 +3,7 @@
 <!-- ===================== headerを読み込む ===================== -->
 <?php get_template_part("template-parts/header"); ?>
 
-<?php wp_footer(); ?>
-</body>
+<!-- ===================== footerを読み込む ===================== -->
+<?php get_template_part("template-parts/footer"); ?>
 
-</html>
+<?php get_footer(); ?>
