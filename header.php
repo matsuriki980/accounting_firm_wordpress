@@ -21,18 +21,6 @@
     <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/common/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/assets/img/common/favicon.ico">
 
-    <!-- google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Zen+Kaku+Gothic+Antique:wght@400;500&display=swap"
-        rel="stylesheet">
-
-    <!-- css -->
-    <!-- 装飾なし（コアスタイル）の最新版 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide-core.min.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css">
-
     <?php wp_head(); ?>
 </head>
 
