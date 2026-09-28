@@ -93,3 +93,8 @@ function my_theme_add_defer_attribute($attributes)
     return $attributes;
 }
 add_filter('wp_script_attributes', 'my_theme_add_defer_attribute');
+
+/**
+ * アイキャッチ画像を使用可能にする
+ */
+add_theme_support('post-thumbnails');
