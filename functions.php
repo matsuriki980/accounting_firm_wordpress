@@ -101,8 +101,8 @@ add_theme_support('post-thumbnails');
 
 /**
  * カテゴリー一覧の投稿件数をspanタグで囲む
- * wp_list_categories()で出力される「(5)」を
- * <span class="category-count">5</span> に変更する
+ * wp_list_categories()で出力される「()」を
+ * <span class="category-count"></span> に変更する
  */
 function custom_category_count($output)
 {
@@ -120,3 +120,25 @@ function custom_category_count($output)
 
 // wp_list_categories()の出力に上記の処理を適用
 add_filter('wp_list_categories', 'custom_category_count');
+
+/**
+ * アーカイブ一覧の投稿件数をspanタグで囲む
+ * wp_get_archives()で出力される「()」を
+ * <span class="archive-count"></span> に変更する
+ */
+function custom_archive_count($output)
+{
+
+    // 「</a> (数字)」を探して、投稿件数をspanタグで囲む・aタグの最後に「年」というテキストを追加する
+    $output = preg_replace(
+        '/<\/a>&nbsp;\((\d+)\)/',
+        '年</a><span class="archive-count">($1)</span>',
+        $output
+    );
+
+    // 加工したアーカイブ一覧のHTMLを返す
+    return $output;
+}
+
+// wp_get_archives()の出力に上記の処理を適用
+add_filter('get_archives_link', 'custom_archive_count');

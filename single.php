@@ -35,15 +35,14 @@
 
                             <nav class="l-news-sidebar__nav" aria-label="newsページサイドバー 「archive」">
                                 <h2 class="l-news-sidebar__title u-en">archive</h2>
-                                <ul class="l-news-sidebar__list">
-                                    <li class="l-news-sidebar__item"><a href="#" class="l-news-sidebar__link">2024年<span
-                                                class="l-news-sidebar__count">(10)</span></a>
-                                    </li>
-                                    <li class="l-news-sidebar__item"><a href="#" class="l-news-sidebar__link">2023年<span
-                                                class="l-news-sidebar__count">(32)</span></a>
-                                    </li>
-                                    <li class="l-news-sidebar__item"><a href="#" class="l-news-sidebar__link">2022年<span
-                                                class="l-news-sidebar__count">(16)</span></a>
+                                <ul class="l-news-sidebar__list l-news-sidebar__list--archive">
+                                    <?php
+                                    $args = [
+                                        'show_post_count' => true, // 投稿件数を表示する
+                                        'type' => 'yearly'
+                                    ];
+                                    wp_get_archives($args);
+                                    ?>
                                     </li>
                                 </ul>
                             </nav>
