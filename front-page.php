@@ -324,7 +324,18 @@
     </section>
 
     <!--======================  news  ======================-->
-    <?php if (have_posts()) : ?>
+
+    <!-- 表示設定をtopにしているため、メインクエリが変更したので「投稿タイプ」を呼び出す -->
+    <?php
+    $args = [
+        'post_type'      => 'post',
+        'posts_per_page' => 3,
+    ];
+
+    $news_query = new WP_Query($args);
+    ?>
+
+    <?php if ($news_query->have_posts()) : ?>
         <section class="p-top-news">
             <div class="p-top-news__inner">
                 <div class="c-title__wrapper p-top-news__title-wrapper">
@@ -335,7 +346,7 @@
                 <div class="p-top-news__content">
                     <ol class="p-top-news__list">
 
-                        <?php while (have_posts()) : the_post(); ?>
+                        <?php while ($news_query->have_posts()) : $news_query->the_post(); ?>
                             <li class="p-top-news__item">
                                 <article class="c-news-item">
                                     <a href="<?php the_permalink(); ?>" class="c-news-item__link">
@@ -369,7 +380,9 @@
                         <?php endwhile; ?>
                     </ol>
 
-                    <a class="c-btn-default__wrapper p-top-news__btn-wrapper" href="news/">
+                    <?php wp_reset_postdata(); ?>
+
+                    <a class="c-btn-default__wrapper p-top-news__btn-wrapper" href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>">
                         <span class="c-btn-default__border"></span>
                         <span class="c-btn-default__text-wrapper">
                             <span class="c-btn-default__text">お知らせ一覧を見る</span>
