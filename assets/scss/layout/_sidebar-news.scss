@@ -36,6 +36,7 @@
   display: flex;
   flex-direction: column;
   gap: 8rem;
+  align-items: flex-start;
 
   @include g.media() {
     gap: 20rem;
@@ -74,6 +75,47 @@
 }
 
 .l-news-sidebar__count {
+  color: #b1b1b1;
+  display: inline-block;
+  margin-left: 6rem;
+}
+
+// WordPress用 css設定
+.cat-item {
+  display: inline-block;
+  padding-bottom: 6rem;
+  position: relative;
+
+  @include g.media() {
+    // border
+    &::before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 1px;
+      position: absolute;
+      bottom: 0;
+      background: currentColor;
+      transition: width 0.3s;
+    }
+
+    // hover時、borderが伸びる
+    &:has(a:hover) {
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.cat-item a {
+  font-size: 14rem;
+  font-weight: g.$font-weight-medium;
+  line-height: 1.4285;
+  left: 0.1em;
+}
+
+.category-count {
   color: #b1b1b1;
   display: inline-block;
   margin-left: 6rem;
