@@ -98,3 +98,25 @@ add_filter('wp_script_attributes', 'my_theme_add_defer_attribute');
  * アイキャッチ画像を使用可能にする
  */
 add_theme_support('post-thumbnails');
+
+/**
+ * カテゴリー一覧の投稿件数をspanタグで囲む
+ * wp_list_categories()で出力される「(5)」を
+ * <span class="category-count">5</span> に変更する
+ */
+function custom_category_count($output)
+{
+
+    // 「</a> (数字)」を探して、投稿件数をspanタグで囲む
+    $output = preg_replace(
+        '/<\/a>\s*\((\d+)\)/',
+        '</a><span class="category-count">($1)</span>',
+        $output
+    );
+
+    // 加工したカテゴリー一覧のHTMLを返す
+    return $output;
+}
+
+// wp_list_categories()の出力に上記の処理を適用
+add_filter('wp_list_categories', 'custom_category_count');

@@ -22,11 +22,14 @@
                                 <ul class="l-news-sidebar__list">
                                     <li class="l-news-sidebar__item"><a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="l-news-sidebar__link">すべて<span
                                                 class="l-news-sidebar__count">(52)</span></a></li>
-                                    <li class="l-news-sidebar__item"><a href="#" class="l-news-sidebar__link">お知らせ<span
-                                                class="l-news-sidebar__count">(23)</span></a></li>
-                                    <li class="l-news-sidebar__item"><a href="#" class="l-news-sidebar__link">カテゴリー<span
-                                                class="l-news-sidebar__count">(29)</span></a>
-                                    </li>
+                                    <?php
+                                    $args = [
+                                        'title_li' => '',
+                                        'show_count' => true, // 投稿件数を表示する
+                                    ];
+                                    wp_list_categories($args);
+                                    ?>
+
                                 </ul>
                             </nav>
 
