@@ -67,10 +67,8 @@
                     </ol>
 
                     <div class="c-pagination-btn__wrapper">
-                        <div
-                            class="c-pagination-btn u-en c-pagination-btn--is-active p-news__pagination-btn p-news__pagination-btn--is-active">
-                            01</div>
-                        <a href="#" class="c-pagination-btn u-en p-news__pagination-btn">02</a>
+                        <!-- ===================== pagination-btnを読み込む ===================== -->
+                        <?php get_template_part("template-parts/pagination-btn"); ?>
                     </div>
                 </div>
             </div>
