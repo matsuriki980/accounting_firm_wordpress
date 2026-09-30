@@ -32,8 +32,10 @@
                 <div class="p-news__block">
                     <ol class="p-news__list">
                         <?php while (have_posts()) : the_post(); ?>
-                            <!-- ===================== news-itemを読み込む ===================== -->
-                            <?php get_template_part("template-parts/news-item"); ?>
+                            <li class="p-news__item">
+                                <!-- ===================== news-itemを読み込む ===================== -->
+                                <?php get_template_part("template-parts/news-item"); ?>
+                            </li>
                         <?php endwhile; ?>
                     </ol>
 
