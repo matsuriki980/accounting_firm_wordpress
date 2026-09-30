@@ -188,7 +188,7 @@
                     <ul class="l-footer__list l-footer__list--right">
                         <li class="l-footer__item"><a href="voice/" class="l-footer__link">お客様の声</a>
                         </li>
-                        <li class="l-footer__item"><a href="news/" class="l-footer__link">お知らせ</a></li>
+                        <li class="l-footer__item"><a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="l-footer__link">お知らせ</a></li>
                         <li class="l-footer__item"><a href="contact/" class="l-footer__link">お問い合わせ</a>
                         </li>
                     </ul>
