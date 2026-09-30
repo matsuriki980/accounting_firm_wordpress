@@ -13,7 +13,7 @@
                     <li class="l-header__item"><a href="service/" class="l-header__link u-underline">サービス内容</a>
                     </li>
                     <li class="l-header__item"><a href="voice/" class="l-header__link u-underline">お客様の声</a></li>
-                    <li class="l-header__item"><a href="news/" class="l-header__link u-underline">お知らせ</a></li>
+                    <li class="l-header__item"><a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="l-header__link u-underline">お知らせ</a></li>
                     <li class="l-header__item"><a href="about/" class="l-header__link u-underline">事務所案内</a></li>
                 </ul>
             </nav>
