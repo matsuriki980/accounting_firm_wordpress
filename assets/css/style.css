@@ -419,19 +419,25 @@ body {
 /* --------------------------------------
   pagination-btn
 -------------------------------------- */
-.c-pagination-btn__wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 50rem);
-  align-items: center;
-  justify-content: center;
-  gap: 10rem;
+.c-pagination-btn--is-active {
+  color: #1d1d1d;
+  background: #ffffff;
+  opacity: 1;
 }
 
-.c-pagination-btn {
-  width: 100%;
+.c-pagination-btn__wrapper .navigation {
+  display: flex;
+  justify-content: center;
+}
+.c-pagination-btn__wrapper .nav-links {
+  display: flex;
+  align-items: flex-end;
+  gap: 10rem;
+}
+.c-pagination-btn__wrapper .page-numbers {
+  width: 40rem;
   aspect-ratio: 1/1;
   border-radius: 50%;
-  border: 1px solid #ffffff;
   display: grid;
   place-items: center;
   font-size: 18rem;
@@ -441,15 +447,31 @@ body {
   transition: opacity 0.3s;
 }
 @media (width >= 900px) {
-  .c-pagination-btn:hover {
+  .c-pagination-btn__wrapper .page-numbers {
+    width: 50rem;
+  }
+  .c-pagination-btn__wrapper .page-numbers:hover {
     opacity: 1;
   }
 }
-
-.c-pagination-btn--is-active {
-  color: #1d1d1d;
-  background: #ffffff;
+.c-pagination-btn__wrapper .page-numbers.current {
   opacity: 1;
+}
+.c-pagination-btn__wrapper .page-numbers.dots {
+  display: flex;
+  border: 0;
+  width: auto;
+}
+.c-pagination-btn__wrapper .page-numbers.dots:hover {
+  opacity: 0.4;
+}
+
+.p-news__block .page-numbers {
+  border: 1px solid #1d1d1d;
+}
+.p-news__block .page-numbers.current {
+  color: #ffffff;
+  background: #1d1d1d;
 }
 
 /* --------------------------------------

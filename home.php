@@ -100,10 +100,13 @@
                     </ol>
 
                     <div class="c-pagination-btn__wrapper">
-                        <div
-                            class="c-pagination-btn u-en c-pagination-btn--is-active p-news__pagination-btn p-news__pagination-btn--is-active">
-                            01</div>
-                        <a href="#" class="c-pagination-btn u-en p-news__pagination-btn">02</a>
+                        <?php the_posts_pagination(
+                            array(
+                                'prev_next' => false, // 「次へ」を非表示
+                                'next_text' => false, // 「前へ」を非表示
+                                'mid_size' => 1, // 現在ページの前後に表示するページ数
+                            )
+                        ); ?>
                     </div>
                 </div>
             </div>

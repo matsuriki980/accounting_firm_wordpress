@@ -3,37 +3,74 @@
 /* --------------------------------------
   pagination-btn
 -------------------------------------- */
-.c-pagination-btn__wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 50rem);
-  align-items: center;
-  justify-content: center;
-  gap: 10rem;
-}
-
-.c-pagination-btn {
-  width: 100%;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  border: 1px solid g.$color-white;
-  display: grid;
-  place-items: center;
-  font-size: 18rem;
-  line-height: 1;
-  letter-spacing: -0.05em;
-  opacity: 0.4;
-  transition: opacity 0.3s;
-
-  @include g.media() {
-    // hover時、opacityを1に
-    &:hover {
-      opacity: 1;
-    }
-  }
-}
 
 .c-pagination-btn--is-active {
   color: g.$color-text;
   background: g.$color-white;
   opacity: 1;
+}
+
+.c-pagination-btn__wrapper {
+  .navigation {
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: flex-end;
+    gap: 10rem;
+  }
+
+  .page-numbers {
+    width: 40rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 18rem;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    opacity: 0.4;
+    transition: opacity 0.3s;
+
+    @include g.media() {
+      width: 50rem;
+
+      // hover時、opacityを1に
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    // 選択中のボタン
+    &.current {
+      opacity: 1;
+    }
+
+    // dots
+    &.dots {
+      display: flex;
+      border: 0;
+      width: auto;
+
+      // hoverしても変化させない
+      &:hover {
+        opacity: 0.4;
+      }
+    }
+  }
+}
+
+// newsページ
+.p-news__block {
+  .page-numbers {
+    border: 1px solid g.$color-text;
+
+    // 選択中のボタン
+    &.current {
+      color: g.$color-white;
+      background: g.$color-text;
+    }
+  }
 }
