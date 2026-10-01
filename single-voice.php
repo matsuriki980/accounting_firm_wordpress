@@ -64,7 +64,7 @@
                     </article>
 
                     <div class="p-voice-detail__btn-wrapper">
-                        <a class="c-btn-default__wrapper" href="../../voice/">
+                        <a class="c-btn-default__wrapper" href="<?php echo esc_url( get_post_type_archive_link( 'voice' ) ); ?>">
                             <span class="c-btn-default__border"></span>
                             <span class="c-btn-default__text-wrapper">
                                 <span class="c-btn-default__text">お客様の一覧へ戻る</span>
