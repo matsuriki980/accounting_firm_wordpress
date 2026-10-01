@@ -474,6 +474,14 @@ body {
   background: #1d1d1d;
 }
 
+.p-voice .page-numbers {
+  border: 1px solid #ffffff;
+}
+.p-voice .page-numbers.current {
+  color: #1d1d1d;
+  background: #ffffff;
+}
+
 /* --------------------------------------
   marquee
 -------------------------------------- */

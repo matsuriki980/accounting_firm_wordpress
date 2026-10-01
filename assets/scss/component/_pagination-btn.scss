@@ -74,3 +74,16 @@
     }
   }
 }
+
+// voiceページ
+.p-voice {
+  .page-numbers {
+    border: 1px solid g.$color-white;
+
+    // 選択中のボタン
+    &.current {
+      color: g.$color-text;
+      background: g.$color-white;
+    }
+  }
+}
