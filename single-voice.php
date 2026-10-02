@@ -137,24 +137,7 @@
                 <ol class="p-voice-other__list">
                     <?php while ($next_posts->have_posts()) : $next_posts->the_post(); ?>
                         <li class="p-voice-other__item">
-                            <article class="c-voice-item">
-                                <a href="<?php the_permalink(); ?>" class="c-voice-item__link p-voice-other__link u-p">
-                                    <span class="c-voice-item__number u-en">
-                                        (<?php
-                                            $each_number = array_search(get_the_ID(), get_posts($all_posts)) + 1;
-                                            echo sprintf('%02d', $each_number);
-                                            ?>)
-                                    </span>
-                                    <div class="c-voice-item__img">
-                                        <?php if (has_post_thumbnail()):  ?>
-                                            <?php the_post_thumbnail('large'); ?>
-                                        <?php endif; ?>
-                                    </div>
-
-                                    <p class="c-voice-item__company"><?php the_title(); ?></p>
-                                    <p class="c-voice-item__text"><?php the_field('caption'); ?></p>
-                                </a>
-                            </article>
+                            <?php get_template_part("template-parts/voice-item"); ?>
                         </li>
                     <?php endwhile; ?>
                 </ol>
