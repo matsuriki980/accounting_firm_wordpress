@@ -142,3 +142,21 @@ function custom_archive_count($output)
 
 // wp_get_archives()の出力に上記の処理を適用
 add_filter('get_archives_link', 'custom_archive_count');
+
+/**
+ * 投稿タイプ[voice]の連番カウントの設定
+ */
+function voice_all_post()
+{
+    // 投稿タイプ[voice]の投稿をすべて取得し、現在表示中の投稿から次の3件を表示する
+    $all_posts =  [
+        'post_type' => 'voice', //投稿タイプ[voice]の投稿を取得
+        'post_status' => 'publish', //公開済みの投稿
+        'fields'         => 'ids', // IDのみを軽量に取得
+        'orderby'     => 'date', //日付を基準にする
+        'order'       => 'ASC', //降順（新しい順）
+        'posts_per_page' => -1, //すべての投稿を取得
+    ];
+
+    return $all_posts;
+}
