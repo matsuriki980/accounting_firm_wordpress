@@ -30,19 +30,7 @@
                 <ol class="p-voice__list">
                     <?php while (have_posts()) : the_post(); ?>
                         <li class="p-voice__item">
-                            <article class="c-voice-item">
-                                <a href="<?php the_permalink(); ?>" class="c-voice-item__link u-p">
-                                    <span class="c-voice-item__number u-en">(01)</span>
-                                    <div class="c-voice-item__img">
-                                        <?php if (has_post_thumbnail()):  ?>
-                                            <?php the_post_thumbnail('large'); ?>
-                                        <?php endif; ?>
-                                    </div>
-
-                                    <p class="c-voice-item__company"><?php the_title(); ?></p>
-                                    <h3 class="c-voice-item__text"><?php the_field('caption'); ?></h3>
-                                </a>
-                            </article>
+                            <?php get_template_part("template-parts/voice-item"); ?>
                         </li>
                     <?php endwhile; ?>
                 </ol>
