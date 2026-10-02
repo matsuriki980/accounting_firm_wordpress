@@ -4,7 +4,8 @@ $all_posts =  get_post_data_voice();
 ?>
 
 <article class="c-voice-item">
-    <a href="<?php the_permalink(); ?>" class="c-voice-item__link p-voice-other__link u-p">
+    <a href="<?php the_permalink(); ?>" class="c-voice-item__link <?php echo is_singular('voice') ? 'p-voice-other__link' : ''; ?> u-p">
+
         <span class="c-voice-item__number u-en">
             (<?php
                 $each_number = array_search(get_the_ID(), get_posts($all_posts)) + 1;
