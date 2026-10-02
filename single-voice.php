@@ -64,7 +64,7 @@
                     </article>
 
                     <div class="p-voice-detail__btn-wrapper">
-                        <a class="c-btn-default__wrapper" href="<?php echo esc_url( get_post_type_archive_link( 'voice' ) ); ?>">
+                        <a class="c-btn-default__wrapper" href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>">
                             <span class="c-btn-default__border"></span>
                             <span class="c-btn-default__text-wrapper">
                                 <span class="c-btn-default__text">お客様の一覧へ戻る</span>
@@ -78,57 +78,99 @@
         <?php endwhile; ?>
     <?php endif; ?>
 
-    <!--======================  other  ======================-->
-    <section class="p-voice-other">
-        <div class="p-voice-other__inner">
-            <div class="c-title__wrapper p-voice-other__title-wrapper">
-                <h2 class="c-title-ja">その他のお客様の声</h2>
-                <p class="c-title-en u-en p-voice-other__title-en">other</p>
+    <?php
+
+    // 投稿タイプ[voice]の投稿をすべて取得し、現在表示中の投稿から次の3件を表示する
+    $all_posts =  [
+        'post_type' => 'voice', //投稿タイプ[voice]の投稿を取得
+        'post_status' => 'publish', //公開済みの投稿
+        'fields'         => 'ids', // IDのみを軽量に取得
+        'orderby'     => 'date', //日付を基準にする
+        'order'       => 'ASC', //降順（新しい順）
+        'posts_per_page' => -1, //すべての投稿を取得
+    ];
+
+    // 投稿タイプ[voice]の全ての投稿数を取得し、変数に格納する
+    $post_all_number = wp_count_posts($all_posts['post_type'])->publish;
+
+    // 現在の投稿が全体の何番目かを取得する
+    $current_post = array_search(get_the_ID(), get_posts($all_posts)) + 1;
+    echo $current_post;
+
+    // 現在の投稿から3件後の投稿の連番を取得する
+    $current_post_next_three_number = $current_post + 3;
+    echo $current_post_next_three_number;
+    echo $post_all_number;
+
+    // 次の三件のデータを格納する変数
+    $next_posts = [];
+
+    if ($current_post_next_three_number > $post_all_number) {
+        $remaining_ids = array_slice(get_posts($all_posts), $current_post); //現在の投稿の次から最後の投稿までを取得
+        $shortage_count = 3 - count($remaining_ids); //3件を表示するのに足りない分の数を計算
+        $loop_ids = array_slice(get_posts($all_posts), 0, $shortage_count); //足りない分だけ最初の投稿から順に取得
+        $next_three_ids = array_merge($remaining_ids, $loop_ids); //$remaining_idsと$loop_idsを結合してその中の3つを表示する
+
+        // 次の投稿が3件以下なら1件目の投稿に戻る
+        $next_posts = new WP_Query([
+            'post_type' => 'voice', //投稿タイプ[voice]の投稿を取得
+            'post__in'  => $next_three_ids, //切り出した3件のIDの配列を指定
+            'orderby'   => 'post__in', //IDが並んでいる順番通りにデータを取得する
+            'posts_per_page' => 3, //3件の投稿を表示
+        ]);
+    } else {
+        // 次の投稿が3件以上なら次の3件目を表示する
+        $next_three_ids = array_slice(get_posts($all_posts), $current_post, 3);
+
+        $next_posts = new WP_Query([
+            'post_type' => 'voice', //投稿タイプ[voice]の投稿を取得
+            'post__in'  => $next_three_ids, //切り出した3件のIDの配列を指定
+            'orderby'   => 'post__in', //IDが並んでいる順番通りにデータを取得する
+            'posts_per_page' => 3, //3件の投稿を表示
+        ]);
+    };
+    ?>
+
+
+    <?php if ($next_posts->have_posts()) : ?>
+        <!--======================  other  ======================-->
+        <section class="p-voice-other">
+            <div class="p-voice-other__inner">
+                <div class="c-title__wrapper p-voice-other__title-wrapper">
+                    <h2 class="c-title-ja">その他のお客様の声</h2>
+                    <p class="c-title-en u-en p-voice-other__title-en">other</p>
+                </div>
+
+                <ol class="p-voice-other__list">
+                    <?php while ($next_posts->have_posts()) : $next_posts->the_post(); ?>
+                        <li class="p-voice-other__item">
+                            <article class="c-voice-item">
+                                <a href="<?php the_permalink(); ?>" class="c-voice-item__link p-voice-other__link u-p">
+                                    <span class="c-voice-item__number u-en">
+                                        (<?php
+                                            $each_number = array_search(get_the_ID(), get_posts($all_posts)) + 1;
+                                            echo sprintf('%02d', $each_number);
+                                            ?>)
+                                    </span>
+                                    <div class="c-voice-item__img">
+                                        <?php if (has_post_thumbnail()):  ?>
+                                            <?php the_post_thumbnail('large'); ?>
+                                        <?php endif; ?>
+                                    </div>
+
+                                    <p class="c-voice-item__company"><?php the_title(); ?></p>
+                                    <p class="c-voice-item__text"><?php the_field('caption'); ?></p>
+                                </a>
+                            </article>
+                        </li>
+                    <?php endwhile; ?>
+                </ol>
             </div>
-
-            <ol class="p-voice-other__list">
-                <li class="p-voice-other__item">
-                    <article class="c-voice-item">
-                        <a href="#" class="c-voice-item__link p-voice-other__link u-p">
-                            <span class="c-voice-item__number u-en">(02)</span>
-                            <div class="c-voice-item__img">
-                                <img src="../../assets/img/voice/p-voice__fv.jpg" width="270" height="300" alt="">
-                            </div>
-
-                            <p class="c-voice-item__company">株式会社桐嶋製作所 K・O様</p>
-                            <p class="c-voice-item__text">数字のプロ。言われたことだけじゃなく、提案までしてくれるのでいつも助かります</p>
-                        </a>
-                    </article>
-                </li>
-                <li class="p-voice-other__item">
-                    <article class="c-voice-item">
-                        <a href="#" class="c-voice-item__link p-voice-other__link u-p">
-                            <span class="c-voice-item__number u-en">(03)</span>
-                            <div class="c-voice-item__img">
-                                <img src="../../assets/img/voice/p-voice__fv.jpg" width="270" height="300" alt="">
-                            </div>
-
-                            <p class="c-voice-item__company">会社名が入ります</p>
-                            <p class="c-voice-item__text">タイトルが入りますタイトルが入ります</p>
-                        </a>
-                    </article>
-                </li>
-                <li class="p-voice-other__item">
-                    <article class="c-voice-item">
-                        <a href="#" class="c-voice-item__link p-voice-other__link u-p">
-                            <span class="c-voice-item__number u-en">(04)</span>
-                            <div class="c-voice-item__img">
-                                <img src="../../assets/img/voice/p-voice__fv.jpg" width="270" height="300" alt="">
-                            </div>
-
-                            <p class="c-voice-item__company">会社名が入ります</p>
-                            <p class="c-voice-item__text">タイトルが入りますタイトルが入ります</p>
-                        </a>
-                    </article>
-                </li>
-            </ol>
-        </div>
-    </section>
+        </section>
+    <?php
+        wp_reset_postdata();
+    endif;
+    ?>
 </main>
 
 <!-- ===================== footerを読み込む ===================== -->
