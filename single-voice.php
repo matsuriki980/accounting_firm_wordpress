@@ -80,15 +80,8 @@
 
     <?php
 
-    // 投稿タイプ[voice]の投稿をすべて取得し、現在表示中の投稿から次の3件を表示する
-    $all_posts =  [
-        'post_type' => 'voice', //投稿タイプ[voice]の投稿を取得
-        'post_status' => 'publish', //公開済みの投稿
-        'fields'         => 'ids', // IDのみを軽量に取得
-        'orderby'     => 'date', //日付を基準にする
-        'order'       => 'ASC', //降順（新しい順）
-        'posts_per_page' => -1, //すべての投稿を取得
-    ];
+    // function.phpから投稿タイプ[voice]の投稿をすべて取得する関数を呼び出す
+    $all_posts =  get_post_data_voice();
 
     // 投稿タイプ[voice]の全ての投稿数を取得し、変数に格納する
     $post_all_number = wp_count_posts($all_posts['post_type'])->publish;
