@@ -36,7 +36,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="l-hamburger-menu__item js-hamburger-menu__item" data-item="voice"><a href="voice/" class="l-hamburger-menu__link">お客様の声</a></li>
+                    <li class="l-hamburger-menu__item js-hamburger-menu__item" data-item="voice"><a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>" class="l-hamburger-menu__link">お客様の声</a></li>
                     <li class="l-hamburger-menu__item js-hamburger-menu__item" data-item="news"><a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="l-hamburger-menu__link">お知らせ</a></li>
                     <li class="l-hamburger-menu__item js-hamburger-menu__item" data-item="contact"><a href="contact/" class="l-hamburger-menu__link">お問い合わせ</a></li>
                 </ul>
