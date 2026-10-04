@@ -149,7 +149,9 @@
 
                 <nav class="l-footer__nav">
                     <ul class="l-footer__list l-footer__list--left">
-                        <li class="l-footer__item"><a href="feature/" class="l-footer__link">青山会計事務所の強み</a>
+
+                        <?php $feature = get_page_by_path('feature'); ?>
+                        <li class="l-footer__item"><a href="<?php echo get_permalink($feature->ID); ?>" class="l-footer__link">青山会計事務所の強み</a>
                         </li>
                         <li class="l-footer__item l-footer__item--has-child">
                             <a href="service/" class="l-footer__link">サービス内容</a>
