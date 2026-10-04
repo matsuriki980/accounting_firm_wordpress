@@ -222,7 +222,10 @@
 
                 <div class="l-footer__bottom">
                     <small class="l-footer__copy-right">©2026 Aoyama Tax Office.</small>
-                    <a href="privacy-policy/" class="l-footer__privacy-policy">プライバシーポリシー</a>
+
+                    <!-- privacy-policy -->
+                    <?php $privacy_policy = get_page_by_path('privacy-policy'); ?>
+                    <a href="<?php echo get_permalink($privacy_policy->ID); ?>" class="l-footer__privacy-policy">プライバシーポリシー</a>
                 </div>
             </section>
 
