@@ -153,17 +153,19 @@
                         <?php $feature = get_page_by_path('feature'); ?>
                         <li class="l-footer__item"><a href="<?php echo get_permalink($feature->ID); ?>" class="l-footer__link">青山会計事務所の強み</a>
                         </li>
+
+                        <?php $service = get_page_by_path('service'); ?>
                         <li class="l-footer__item l-footer__item--has-child">
-                            <a href="service/" class="l-footer__link">サービス内容</a>
+                            <a href="<?php echo get_permalink($service->ID); ?>" class="l-footer__link">サービス内容</a>
                             <ul class="l-footer__sub-list">
                                 <li class="l-footer__sub-item">
-                                    <a href="service#tax" class="l-footer__sub-link">税務・会計</a>
+                                    <a href="<?php echo get_permalink($service->ID); ?>#tax" class="l-footer__sub-link">税務・会計</a>
                                 </li>
                                 <li class="l-footer__sub-item">
-                                    <a href="service#capital" class="l-footer__sub-link">相続・贈与・譲渡所得</a>
+                                    <a href="<?php echo get_permalink($service->ID); ?>#capital" class="l-footer__sub-link">相続・贈与・譲渡所得</a>
                                 </li>
                                 <li class="l-footer__sub-item">
-                                    <a href="service#support" class="l-footer__sub-link">設立・開業支援</a>
+                                    <a href="<?php echo get_permalink($service->ID); ?>#support" class="l-footer__sub-link">設立・開業支援</a>
                                 </li>
                             </ul>
                         </li>
