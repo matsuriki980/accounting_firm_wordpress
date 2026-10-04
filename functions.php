@@ -160,3 +160,8 @@ function get_post_data_voice()
 
     return $all_posts;
 }
+
+/*
+* Contact Form 7 が自動で挿入する <p> タグや <br> タグを削除
+*/
+add_filter('wpcf7_autop_or_not', '__return_false');
