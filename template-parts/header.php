@@ -8,7 +8,10 @@
         <div class="l-header__content">
             <nav class="l-header__nav u-sp-hidden" aria-label="ヘッダーのグローバルナビゲーション">
                 <ul class="l-header__list">
-                    <li class="l-header__item"><a href="feature/" class="l-header__link u-underline">青山会計事務所の強み</a>
+
+                    <?php $feature = get_page_by_path('feature'); ?>
+
+                    <li class="l-header__item"><a href="<?php echo get_permalink($feature->ID); ?>" class="l-header__link u-underline">青山会計事務所の強み</a>
                     </li>
                     <li class="l-header__item"><a href="service/" class="l-header__link u-underline">サービス内容</a>
                     </li>
