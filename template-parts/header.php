@@ -13,7 +13,9 @@
 
                     <li class="l-header__item"><a href="<?php echo get_permalink($feature->ID); ?>" class="l-header__link u-underline">青山会計事務所の強み</a>
                     </li>
-                    <li class="l-header__item"><a href="service/" class="l-header__link u-underline">サービス内容</a>
+
+                    <?php $service = get_page_by_path('service'); ?>
+                    <li class="l-header__item"><a href="<?php echo get_permalink($service->ID); ?>" class="l-header__link u-underline">サービス内容</a>
                     </li>
                     <li class="l-header__item"><a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>" class="l-header__link u-underline">お客様の声</a></li>
                     <li class="l-header__item"><a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="l-header__link u-underline">お知らせ</a></li>
