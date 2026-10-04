@@ -148,12 +148,16 @@
                 <h2 class="l-footer__logo c-logo u-mask-img" aria-label="フッターナビゲーション ロゴ"></h2>
 
                 <nav class="l-footer__nav">
+
+                    <!-- 左の列 -->
                     <ul class="l-footer__list l-footer__list--left">
 
+                        <!-- feature -->
                         <?php $feature = get_page_by_path('feature'); ?>
                         <li class="l-footer__item"><a href="<?php echo get_permalink($feature->ID); ?>" class="l-footer__link">青山会計事務所の強み</a>
                         </li>
 
+                        <!-- service -->
                         <?php $service = get_page_by_path('service'); ?>
                         <li class="l-footer__item l-footer__item--has-child">
                             <a href="<?php echo get_permalink($service->ID); ?>" class="l-footer__link">サービス内容</a>
@@ -170,29 +174,42 @@
                             </ul>
                         </li>
                     </ul>
+
+                    <!-- 真ん中の列 -->
                     <ul class="l-footer__list l-footer__list--center">
+
+                        <!-- about -->
+                        <?php $about = get_page_by_path('about'); ?>
                         <li class="l-footer__item l-footer__item--has-child">
-                            <a href="about/" class="l-footer__link">事務所案内</a>
+                            <a href="<?php echo get_permalink($about->ID); ?>" class="l-footer__link">事務所案内</a>
                             <ul class="l-footer__sub-list">
                                 <li class="l-footer__sub-item">
-                                    <a href="about#message" class="l-footer__sub-link">代表挨拶</a>
+                                    <a href="<?php echo get_permalink($about->ID); ?>#message" class="l-footer__sub-link">代表挨拶</a>
                                 </li>
                                 <li class="l-footer__sub-item">
-                                    <a href="about#values" class="l-footer__sub-link">経営理念</a>
+                                    <a href="<?php echo get_permalink($about->ID); ?>#values" class="l-footer__sub-link">経営理念</a>
                                 </li>
                                 <li class="l-footer__sub-item">
-                                    <a href="about#company" class="l-footer__sub-link">事務所概要</a>
+                                    <a href="<?php echo get_permalink($about->ID); ?>#company" class="l-footer__sub-link">事務所概要</a>
                                 </li>
                                 <li class="l-footer__sub-item">
-                                    <a href="about#access" class="l-footer__sub-link">アクセス</a>
+                                    <a href="<?php echo get_permalink($about->ID); ?>#access" class="l-footer__sub-link">アクセス</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
+
+                    <!-- 右の列 -->
                     <ul class="l-footer__list l-footer__list--right">
+
+                        <!-- voice -->
                         <li class="l-footer__item"><a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>" class="l-footer__link">お客様の声</a>
                         </li>
+
+                        <!-- news -->
                         <li class="l-footer__item"><a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="l-footer__link">お知らせ</a></li>
+
+                        <!-- contact -->
                         <li class="l-footer__item"><a href="contact/" class="l-footer__link">お問い合わせ</a>
                         </li>
                     </ul>
