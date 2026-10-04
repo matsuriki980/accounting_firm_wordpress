@@ -4,10 +4,12 @@
             <nav class="l-hamburger-menu__nav" aria-label="ハンバーガーメニューのナビゲーション">
                 <ul class="l-hamburger-menu__list">
 
+                    <!-- feature -->
                     <?php $feature = get_page_by_path('feature'); ?>
                     <li class="l-hamburger-menu__item js-hamburger-menu__item" data-item="feature"><a href="<?php echo get_permalink($feature->ID); ?>" class="l-hamburger-menu__link">青山会計事務所の強み</a>
                     </li>
 
+                    <!-- service -->
                     <?php $service = get_page_by_path('service'); ?>
                     <li class="l-hamburger-menu__item l-hamburger-menu__item--has-child js-hamburger-menu__item" data-item="service">
                         <a href="<?php echo get_permalink($service->ID); ?>" class="l-hamburger-menu__link">サービス内容</a>
@@ -23,25 +25,34 @@
                             </li>
                         </ul>
                     </li>
+
+                    <!-- about -->
+                    <?php $about = get_page_by_path('about'); ?>
                     <li class="l-hamburger-menu__item l-hamburger-menu__item--has-child js-hamburger-menu__item" data-item="about">
-                        <a href="about/" class="l-hamburger-menu__link">事務所案内</a>
+                        <a href="<?php echo get_permalink($about->ID); ?>" class="l-hamburger-menu__link">事務所案内</a>
                         <ul class="l-hamburger-menu__sub-list">
                             <li class="l-hamburger-menu__sub-item">
-                                <a href="about#message" class="l-hamburger-menu__sub-link">代表挨拶</a>
+                                <a href="<?php echo get_permalink($about->ID); ?>#message" class="l-hamburger-menu__sub-link">代表挨拶</a>
                             </li>
                             <li class="l-hamburger-menu__sub-item">
-                                <a href="about#values" class="l-hamburger-menu__sub-link">経営理念</a>
+                                <a href="<?php echo get_permalink($about->ID); ?>#values" class="l-hamburger-menu__sub-link">経営理念</a>
                             </li>
                             <li class="l-hamburger-menu__sub-item">
-                                <a href="about#company" class="l-hamburger-menu__sub-link">事務所概要</a>
+                                <a href="<?php echo get_permalink($about->ID); ?>#company" class="l-hamburger-menu__sub-link">事務所概要</a>
                             </li>
                             <li class="l-hamburger-menu__sub-item">
-                                <a href="about#access" class="l-hamburger-menu__sub-link">アクセス</a>
+                                <a href="<?php echo get_permalink($about->ID); ?>#access" class="l-hamburger-menu__sub-link">アクセス</a>
                             </li>
                         </ul>
                     </li>
+
+                    <!-- voice -->
                     <li class="l-hamburger-menu__item js-hamburger-menu__item" data-item="voice"><a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>" class="l-hamburger-menu__link">お客様の声</a></li>
+
+                    <!-- news -->
                     <li class="l-hamburger-menu__item js-hamburger-menu__item" data-item="news"><a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="l-hamburger-menu__link">お知らせ</a></li>
+
+                    <!-- contact -->
                     <li class="l-hamburger-menu__item js-hamburger-menu__item" data-item="contact"><a href="contact/" class="l-hamburger-menu__link">お問い合わせ</a></li>
                 </ul>
             </nav>
