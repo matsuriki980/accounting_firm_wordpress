@@ -3,7 +3,9 @@
         <div class="l-hamburger-menu__inner">
             <nav class="l-hamburger-menu__nav" aria-label="ハンバーガーメニューのナビゲーション">
                 <ul class="l-hamburger-menu__list">
-                    <li class="l-hamburger-menu__item js-hamburger-menu__item" data-item="feature"><a href="feature/" class="l-hamburger-menu__link">青山会計事務所の強み</a>
+
+                    <?php $feature = get_page_by_path('feature'); ?>
+                    <li class="l-hamburger-menu__item js-hamburger-menu__item" data-item="feature"><a href="<?php echo get_permalink($feature->ID); ?>" class="l-hamburger-menu__link">青山会計事務所の強み</a>
                     </li>
                     <li class="l-hamburger-menu__item l-hamburger-menu__item--has-child js-hamburger-menu__item" data-item="service">
                         <a href="service/" class="l-hamburger-menu__link">サービス内容</a>
