@@ -16,9 +16,6 @@
   font-size: 14rem;
 }
 
-.p-contact-form {
-}
-
 .p-contact-form__list {
   display: flex;
   flex-direction: column;
@@ -28,9 +25,6 @@
   @include g.media() {
     gap: 22rem;
   }
-}
-
-.p-contact-form__item {
 }
 
 // 郵便番号
@@ -60,23 +54,23 @@
   display: flex;
   align-items: center;
   gap: 9rem;
-
-  // ハイフン
-  span {
-    width: 10.5rem;
-    height: 1px;
-    background: g.$color-text;
-  }
 }
 
 // 郵便番号 1つ目の入力欄
-#postal-code-first {
+[data-name="postal-code-first"] {
   width: 66rem;
 }
 
 // 郵便番号 2つ目の入力欄
-#postal-code-second {
+[data-name="postal-code-second"] {
   width: 76rem;
+}
+
+// ハイフン
+.p-contact-form__postal-code-hyphen {
+  width: 10.5rem;
+  height: 1px;
+  background: g.$color-text;
 }
 
 .p-contact-form__agreement-wrapper {
@@ -92,15 +86,12 @@
   font-weight: g.$font-weight-medium;
   line-height: 2;
   letter-spacing: 0.08em;
-  display: grid;
-  align-items: flex-start;
-  grid-template-columns: 18rem 1fr;
-  gap: 13rem;
 
   input {
-    width: 100%;
+    width: 18rem;
     aspect-ratio: 1/1;
-    margin-top: 8rem;
+    margin-top: 4rem;
+    cursor: pointer;
   }
 
   a {
@@ -108,9 +99,10 @@
     border-bottom: 1px solid currentColor;
   }
 
-  @include g.media() {
-    display: inline-grid;
-    text-align: center;
+  label {
+    display: flex;
+    align-items: center;
+    gap: 13rem;
   }
 }
 
@@ -118,4 +110,13 @@
 .p-contact__textarea {
   height: auto;
   line-height: 2;
+}
+
+// 入力エラー案内テキスト
+.wpcf7-form {
+  position: relative;
+
+  .wpcf7-response-output {
+    display: none;
+  }
 }
