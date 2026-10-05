@@ -395,6 +395,7 @@ body {
   font-weight: 500;
   line-height: 2;
   letter-spacing: 0.08em;
+  cursor: pointer;
   transition: background 0.3s, color 0.3s;
 }
 @media (width >= 900px) {
@@ -3987,18 +3988,19 @@ body {
   align-items: center;
   gap: 9rem;
 }
-.p-contact-form__input-wrapper span {
-  width: 10.5rem;
-  height: 1px;
-  background: #1d1d1d;
-}
 
-#postal-code-first {
+[data-name=postal-code-first] {
   width: 66rem;
 }
 
-#postal-code-second {
+[data-name=postal-code-second] {
   width: 76rem;
+}
+
+.p-contact-form__postal-code-hyphen {
+  width: 10.5rem;
+  height: 1px;
+  background: #1d1d1d;
 }
 
 .p-contact-form__agreement-wrapper {
@@ -4015,30 +4017,33 @@ body {
   font-weight: 500;
   line-height: 2;
   letter-spacing: 0.08em;
-  display: grid;
-  align-items: flex-start;
-  grid-template-columns: 18rem 1fr;
-  gap: 13rem;
 }
 .p-contact-form__agreement input {
-  width: 100%;
+  width: 18rem;
   aspect-ratio: 1/1;
-  margin-top: 8rem;
+  margin-top: 4rem;
+  cursor: pointer;
 }
 .p-contact-form__agreement a {
   color: #3f4f8a;
   border-bottom: 1px solid currentColor;
 }
-@media (width >= 900px) {
-  .p-contact-form__agreement {
-    display: inline-grid;
-    text-align: center;
-  }
+.p-contact-form__agreement label {
+  display: flex;
+  align-items: center;
+  gap: 13rem;
 }
 
 .p-contact__textarea {
   height: auto;
   line-height: 2;
+}
+
+.wpcf7-form {
+  position: relative;
+}
+.wpcf7-form .wpcf7-response-output {
+  display: none;
 }
 
 /* --------------------------------------
