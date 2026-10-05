@@ -4046,6 +4046,10 @@ body {
   display: none;
 }
 
+.wpcf7-spinner {
+  display: none;
+}
+
 /* --------------------------------------
   contact-confirm
 -------------------------------------- */
