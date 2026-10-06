@@ -53,7 +53,8 @@
                     <li class="l-hamburger-menu__item js-hamburger-menu__item" data-item="news"><a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="l-hamburger-menu__link">お知らせ</a></li>
 
                     <!-- contact -->
-                    <li class="l-hamburger-menu__item js-hamburger-menu__item" data-item="contact"><a href="contact/" class="l-hamburger-menu__link">お問い合わせ</a></li>
+                    <?php $contact = get_page_by_path('contact'); ?>
+                    <li class="l-hamburger-menu__item js-hamburger-menu__item" data-item="contact"><a href="<?php echo get_permalink($contact->ID); ?>" class="l-hamburger-menu__link">お問い合わせ</a></li>
                 </ul>
             </nav>
 
