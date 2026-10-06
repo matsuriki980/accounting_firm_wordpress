@@ -37,7 +37,13 @@
                 </nav>
 
                 <div class="l-header__btns">
-                    <a href="contact/" class="l-header__btn l-header__btn--contact" aria-label="お問い合わせページに移動する"></a>
+
+                    <!-- contact -->
+                    <?php $contact = get_page_by_path('contact'); ?>
+                    <a href="<?php echo get_permalink($contact->ID); ?>" class="l-header__btn l-header__btn--contact" aria-label="お問い合わせページに移動する"></a>
+
+
+                    <!-- hamburger-btn -->
                     <button class="l-header__btn l-header__btn--hamburger js-hamburger-btn" aria-label="ハンバーガーメニューを開く">
                         <span></span>
                         <span></span>
