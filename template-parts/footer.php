@@ -1,5 +1,9 @@
     <!--======================  footer  ======================-->
     <footer class="l-footer">
+
+        <!-- contactページ リンク設定変数 -->
+        <?php $contact = get_page_by_path('contact'); ?>
+
         <div class="l-footer__inner">
 
             <section class="l-footer__contact">
@@ -21,7 +25,7 @@
                             <span>まずはお気軽にご相談ください。</span>
                         </div>
 
-                        <a href="contact/" class="c-btn-arrow l-footer__contact-btn" ar ia-label="お問い合わせページに移動する">
+                        <a href="<?php echo get_permalink($contact->ID); ?>" class="c-btn-arrow l-footer__contact-btn" ar ia-label="お問い合わせページに移動する">
                             <span class="c-btn-arrow__icon"></span>
                         </a>
 
@@ -210,7 +214,7 @@
                         <li class="l-footer__item"><a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="l-footer__link">お知らせ</a></li>
 
                         <!-- contact -->
-                        <li class="l-footer__item"><a href="contact/" class="l-footer__link">お問い合わせ</a>
+                        <li class="l-footer__item"><a href="<?php echo get_permalink($contact->ID); ?>" class="l-footer__link">お問い合わせ</a>
                         </li>
                     </ul>
                 </nav>
