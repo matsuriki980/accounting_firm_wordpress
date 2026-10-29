@@ -70,6 +70,10 @@ WordPressを組み込みました。
 - Contact Form7
 - Contact Form7 Multi-Step Forms
 
+### カスタム投稿タイプ作成
+- Custom Post Type UI
+- Advanced Custom Fields
+
 ### サーバーアップロード
 - All-in-One WP Migration and Backup
 <br>
